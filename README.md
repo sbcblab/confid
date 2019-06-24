@@ -2,7 +2,7 @@
 
 Welcome to this repository. Here you will find all the code needed to run the ConfID software.
 
-# CONTACT INFORMATION
+# Contact information
 
 Marcelo D. Polêto, Bruno Iochins Grisci, Marcio Dorn, Hugo Verli
 
@@ -14,7 +14,7 @@ E-mail: mdorn@inf.ufrgs.br
 
 http://sbcb.inf.ufrgs.br/confid
 
-# CITATION
+# Citing ConfID
 
 If you use ConfID in a scientific publication, we would appreciate citations to the following paper:
 
