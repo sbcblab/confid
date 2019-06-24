@@ -1,0 +1,60 @@
+################################################################################
+#                         Conformational Identifier                   	       #
+#	                      ConfID 1.0 (2019)                                #
+#                                                                              #
+#  Please cite:                                                                #
+#  Marcelo D Polêto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an       #
+#  analytical method for conformational characterization of small              #
+#  molecules using molecular dynamics trajectories, Bioinformatics, Volume     #
+#  X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                             #
+#                                                                              #
+#                                                                              #
+#         In case of bugs or suggestions, please contact us:                   #
+#                      confidcontact@gmail.com                                 # 
+#                                                                              #
+################################################################################
+
+
+### INSTALLATION GUIDE ###
+
+- Download ConfID.zip and unpack all files to your directory of choice.
+
+- ConfID requires Python distributions to be used and it is optimized for Python 2.7, but also compatible with Python 3.x.
+
+- Open a terminal in the working directory and type:
+
+	$ python check_dep.py
+
+- This will check for all python libraries required to run ConfID. Usually, 
+ConfID requires the following external libraries:
+
+	-> graphviz
+	-> matplotlib
+	-> numpy
+
+- If any of those are missing, you should install it before continuing.
+
+
+### ALIASING CONFID ###
+
+- In order to run ConfID in any given directory without carrying a lot of files 
+with you, we strongly advise you to alias ConfID.
+
+- For this, copy the "ConfID" folder that was extracted before;
+
+- Move it to an installation folder of your choice;
+
+- Then, add the following line to the end of your ~/.bashrc file:
+
+	alias confID='python /installation_folder_you_chose/ConfID/confID.py'
+
+	(example: alias confID='python /home/marcelo/Tools/ConfID/confID.py)
+
+- Then run on terminal:
+
+	$ source ~/.bashrc
+
+- After this, you should be able to run ConfID in your terminal at any given 
+directory by simple typing:
+
+	$ confID input.inp config

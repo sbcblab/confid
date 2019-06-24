@@ -1,0 +1,40 @@
+RESULTS_FOLDER      	(string)                                                           defaults to Populations/
+DIH_POP_FOLDER        	(string)                                                           defaults to Dihedral_Regions/
+NETWORK_FOLDER      	(string)                                                           defaults to Networks/
+SHOW_Z             	(string)          [False / True]                                   defaults to False
+NETWORK_CUTOFF       	(float)           [>= 0.0]                                         defaults to 0.01
+PLOT_NETWORK         	(string)          [False / True]                                   defaults to False
+CONVERGENCE_CUTOFF 	(float)           [>= 0.0]                                         defaults to 0.01
+FACTOR_PEAK        	(float)           [>= 1.0, < FACTOR_VALLEY]                        defaults to 50.0 
+FACTOR_VALLEY      	(float)           [>= 1.0, > FACTOR_PEAK]                          defaults to 60.0
+TIME_DEPENDENT_STATS    (string)          [False / True]                                   defaults to True
+DATA_1             	(list of strings) [sum / max / min / aver / std / median / count]  defaults to sum     
+DATA_2             	(list of strings) [sum / max / min / aver / std / median / count]  defaults to aver 
+
+##############################
+
+RESULTS_FOLDER:      	specifies the directory in which output files should be saved.
+DIH_POP_FOLDER:        	specifies the directory in which output .xvg files should be saved.
+NETWORK_FOLDER:      	specifies the directory in which output network files should be saved.
+SHOW_Z:             	flag that determines if spurious regions (Z) should be represented in the results. They will be used in the internal calculations nevertheless. If this is True please consider setting PLOT_NETWORK to False, as plotting the chart may become too slow. 
+NETWORK_CUTOFF:       	the smallest transition frequency required for an edge to appear in the networks. If equal to 0.0, all edges are considered. If this cutoff is too small please consider setting PLOT_NETWORK to False, as plotting the chart may become too slow. 
+PLOT_NETWORK:         	if True, network figures for the transitions will be created using the graphviz library. Networks text files will be created if it is either True or False.
+CONVERGENCE_CUTOFF: 	the smallest population frequency at the end of the simulation required for the convergence file for that population to be generated. If equal to 0.0, all populations will be represented, but for a large number of dihedral angles this can take a while.
+FACTOR_PEAK         	factor that sets the constriction for peaks selection. Larger values lessen the constriction. Must be larger or equal to 1.0 and smaller than FACTOR_VALLEY.
+FACTOR_VALLEY       	factor that sets the constriction for valleys selection. Lower values lessen the constriction. Must be larger or equal to 1.0 and larger than FACTOR_PEAK.
+TIME_DEPENDENT_STATS:	flag that determines if the statistics of the time stayed at each population should be computed.
+DATA_1:             	list of functions that should be used as the x axis of the charts of the statistics of the time stayed at each population and how the report should be ordered.  
+DATA_2:             	list of functions that should be used as the y axis of the charts of the statistics of the time stayed at each population and how the report should be ordered.
+
+##############################
+
+TIME-DEPENDENT PROPERTIES AVAILABLE:
+
+- sum: total time in a population
+- max: maximum time spent in a population without leaving
+- min: minimum time spent in a population without leaving
+- aver: average time spent in a population without leaving
+- std: standard deviation of the average time
+- median: median time spent in a population without leaving
+- count: amount of times of a transition event entering this population
+
