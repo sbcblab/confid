@@ -1,8 +1,8 @@
-## ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories
+# ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories
 
 Welcome to this repository. Here you will find all the code needed to run the ConfID software.
 
-# Contact information
+## Contact information
 
 Marcelo D. Polêto, Bruno Iochins Grisci, Marcio Dorn, Hugo Verli
 
@@ -14,7 +14,7 @@ E-mail: mdorn@inf.ufrgs.br
 
 http://sbcb.inf.ufrgs.br/confid
 
-# Citing ConfID
+## Citing ConfID
 
 If you use ConfID in a scientific publication, we would appreciate citations to the following paper:
 
