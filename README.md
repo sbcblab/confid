@@ -12,9 +12,9 @@ Have a nice "ConfIDent" analysis! =)
 
 Marcelo D. Polêto, Bruno Iochins Grisci, Marcio Dorn, Hugo Verli
 
-Centro de Biotecnologia, Universidade Federal do Rio Grande do Sul, Porto Alegre, RS, Brazil
-Institute of Informatics, Federal University of Rio Grande do Sul, Porto Alegre, RS, Brazil
-Departamento de Biologia Geral, Universidade Federal de Viçosa, Viçosa, MG, Brazil
+- Centro de Biotecnologia, Universidade Federal do Rio Grande do Sul, Porto Alegre, RS, Brazil
+- Institute of Informatics, Federal University of Rio Grande do Sul, Porto Alegre, RS, Brazil
+- Departamento de Biologia Geral, Universidade Federal de Viçosa, Viçosa, MG, Brazil
 
 E-mail: mdorn@inf.ufrgs.br
 
