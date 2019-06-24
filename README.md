@@ -1,6 +1,12 @@
 # ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories
 
-Welcome to this repository. Here you will find all the code needed to run the ConfID software.
+Thanks for downloading ConfiD!
+
+- For installation instructions, please read "INSTALL.txt".
+- For usage and configuration instructions, please read "config_help.txt"
+- For tutorials and more in depth explanations, please access http://sbcb.inf.ufrgs.br/confid.
+
+Have a nice "ConfIDent" analyses! =)
 
 ## Contact information
 
