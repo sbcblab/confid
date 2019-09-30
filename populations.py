@@ -47,7 +47,7 @@ class pops:
 
         self.regions = self.get_regions(peaks, valleys, angles[sorter])
         self.peaks = angles[sorter][peaks]
-        for p in xrange(len(self.peaks)):
+        for p in range(len(self.peaks)):
             if self.peaks[p] > 180.0:
                 self.peaks[p] -= 360.0
             elif self.peaks[p] < -180.0:
@@ -60,13 +60,13 @@ class pops:
 
     def smooth(self, x, window_len=21, window='hanning'):
         if x.ndim != 1:
-            raise ValueError, "smooth only accepts 1 dimension arrays."
+            raise ValueError("Smooth only accepts 1 dimension arrays.")
         if x.size < window_len:
-            raise ValueError, "Input vector needs to be bigger than window size."
+            raise ValueError("Input vector needs to be bigger than window size.")
         if window_len<3:
             return x
         if not window in ['flat', 'hanning', 'hamming', 'bartlett', 'blackman']:
-            raise ValueError, "Window is on of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'"
+            raise ValueError("Window is on of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'")
         s=np.r_[x[window_len-1:0:-1],x,x[-2:-window_len-1:-1]]
         #print(len(s))
         if window == 'flat': #moving average
@@ -78,7 +78,7 @@ class pops:
 
     def find_peaks(self, distribution):
         peaks = []
-        for i in xrange(1, distribution.size-1):
+        for i in range(1, distribution.size-1):
             if (distribution[i] > distribution[i-1] and distribution[i] > distribution[i+1] and distribution[i] >= (np.max(distribution)/self.fp)):
                 peaks.append(i)
 
@@ -88,7 +88,7 @@ class pops:
 
     def find_valleys(self, distribution):
         valleys = []
-        for i in xrange(1, distribution.size-1):
+        for i in range(1, distribution.size-1):
             if (distribution[i] <= distribution[i-1] and distribution[i] <= distribution[i+1]) or distribution[i] <= np.max(distribution)/self.fv:
                 valleys.append(i)
 

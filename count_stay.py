@@ -10,7 +10,10 @@ import os
 import sys
 import pprint
 import numpy as np
-from itertools import imap
+try:
+    from itertools import imap
+except ImportError:
+    imap=map
 import matplotlib.pyplot as plt
 
 def assing_function(value):
@@ -63,7 +66,7 @@ def main(input_file, fun1, fun2, POP_ID=None):
     max_k_len = max(imap(len, stay))
 
     if POP_ID != None:
-        keys = POP_ID.keys()
+        keys = list(POP_ID.keys())
         for k in keys:
             POP_ID[str(k)] = POP_ID.pop(k)
 
@@ -94,15 +97,19 @@ def main(input_file, fun1, fun2, POP_ID=None):
             sc.write(str(r[1]).ljust(15,' '))
             sc.write('\n')
 
-    fig, ax = plt.subplots()
-    ax.scatter(x, y)
+    try:
+        fig, ax = plt.subplots()
+        ax.scatter(x, y)
 
-    plt.title(input_file)
-    plt.xlabel(fun1)
-    plt.ylabel(fun2)
-    plt.savefig(input_file.replace('.txt', '-Time_Stats-{}X{}.png'.format(fun1, fun2)))
-    plt.cla()
-    plt.clf()
-    plt.close()
-    del ax
-    del fig
+        plt.title(input_file)
+        plt.xlabel(fun1)
+        plt.ylabel(fun2)
+        plt.savefig(input_file.replace('.txt', '-Time_Stats-{}X{}.png'.format(fun1, fun2)))
+        plt.cla()
+        plt.clf()
+        plt.close()
+        del ax
+        del fig
+    except Exception as e: 
+        print('ERROR while rendering time stats plots.')
+        print(e)

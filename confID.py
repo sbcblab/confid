@@ -106,12 +106,12 @@ if __name__ == '__main__':
                             raise Exception("ERROR: matplotlib.pyplot package needs to be installed if TIME_DEPENDENT_STATS is True, but it couldn't be imported.")
                 elif l[0].upper() == 'DATA_1':
                     fun1 = []
-                    for i in xrange(1, len(l)):
+                    for i in range(1, len(l)):
                         fun1.append(l[i].lower())
                     print('{} = {}'.format(l[0], fun1))
                 elif l[0].upper() == 'DATA_2':
                     fun2 = []
-                    for i in xrange(1, len(l)):
+                    for i in range(1, len(l)):
                         fun2.append(l[i].lower())
                     print('{} = {}'.format(l[0], fun2))
                 else:
@@ -181,4 +181,4 @@ if __name__ == '__main__':
 
 stop = timeit.default_timer()
 
-print('Runtime: {} sec').format(round(stop - start,2))
+print('Runtime: {} sec'.format(round(stop - start,2)))

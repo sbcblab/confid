@@ -9,7 +9,11 @@ import pprint
 import numpy as np
 import operator
 from collections import Counter
-from itertools import imap
+try:
+    from itertools import imap
+except ImportError:
+    #print("WARNING: Could not import imap from itertools, if using Python 3.x ignore this warning.")
+    imap=map
 
 from populations import pops
 
@@ -50,7 +54,7 @@ class region:
             med = med + 360.0
         return med
     def __repr__(self):
-        return '{:24s} # count: {:6d} # freq: {:6.3f} # peak: {:4d} # mean: {:8.3f} # std: {:6.3f} # median: {:8.3f}'.format(self.reg, self.get_count(), self.get_freq(), self.peak, self.get_mean(), self.get_std(), self.get_median())
+        return '{:24s} # count: {:6d} # freq: {:6.3f} # peak: {:4d} # mean: {:8.3f} # std: {:6.3f} # median: {:8.3f}'.format(str(self.reg), self.get_count(), self.get_freq(), self.peak, self.get_mean(), self.get_std(), self.get_median())
 
 ################################################################
 ################################################################
@@ -158,8 +162,11 @@ def show_graph(nodes, edges, first_node, last_node, cutoff, filename, plot_graph
                     dot.node(str(node), str(node), width=str(nodes[node]/max_size*2), height=str(nodes[node]/max_size*2), color=c, shape=s, labelfontsize='7')
                 s = 'circle'
                 c = 'gray'
-
-        dot.render(filename.replace('.txt', ''), view=False)
+        try:
+            dot.render(filename.replace('.txt', ''), view=False)
+        except Exception as e: 
+            print('ERROR while rendering networks')
+            print(e)
 
 ################################################################
 ################################################################
@@ -321,15 +328,15 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
             if 'z' not in rs:
                 major_points += cs
                 major_freq   += freq
-                top_file.write('\nP#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, rs, freq, cs, mrl = max_rs_len))
-                print('P#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, rs, freq, cs, mrl = max_rs_len))
+                top_file.write('\nP#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, str(rs), freq, cs, mrl = max_rs_len))
+                print('P#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, str(rs), freq, cs, mrl = max_rs_len))
                 pindex += 1
             else:
                 z_points += cs
                 z_freq   += freq
                 if show_z:
-                    top_file.write('\nP#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, rs, freq, cs, mrl = max_rs_len))
-                    print('P#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, rs, freq, cs, mrl = max_rs_len))
+                    top_file.write('\nP#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, str(rs), freq, cs, mrl = max_rs_len))
+                    print('P#{:4d} {:{mrl}s}: {:6f} ({:6d})'.format(pindex, str(rs), freq, cs, mrl = max_rs_len))
                     pindex += 1
 
         ################################################################
@@ -349,7 +356,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
 
     ################################################################
 
-    for i in xrange(len(count)):
+    for i in range(len(list(count))):
         regions_times[count[i]].append(TIMES[0][i])
 
     ################################################################
@@ -447,7 +454,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
 
                     pta_file.write('@    title "Region Transition: "\n@    xaxis  label "Time"\n@    yaxis  label "Trasition (1 yes | 0 no)"\n@TYPE xy\n')
                     transitions = 0
-                    ziped = zip(*ANGLES)
+                    ziped = list(zip(*ANGLES))
                     loop_size = len(ziped)
                     a_ant = ziped[0]
                     if not show_z:
@@ -458,7 +465,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                     first_node = a_ant
                     percent_time = 0.0
                     percent_mark = 0.0
-                    zipziped = zip(zip(*ANGLES), zip(*TIMES))
+                    zipziped = list(zip(zip(*ANGLES), zip(*TIMES)))
                     loop_size = len(zipziped)
 
                     #For convergence:
@@ -489,7 +496,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                         if a != a_ant:
                             if show_z or 'z' not in a:
                                 transitions += 1
-                                alltran_file.write('{:25s} -> {:25s} | t = {:9.1f}\n'.format(a_ant, a, t[0]))
+                                alltran_file.write('{:25s} -> {:25s} | t = {:9.1f}\n'.format(str(a_ant), str(a), t[0]))
                                 pta_file.write('{:13.5f}   {:8.3f}\n'.format(float(t[0]), 1.0))
                                 if (a_ant, a) in edges:
                                     edges[(a_ant, a)] += 1.0
@@ -518,7 +525,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
     #######################################################################################################
 
     print('Computing conformational frequency convergence...')
-    timeziped = zip(*TIMES)
+    timeziped = list(zip(*TIMES))
     for k in POP_ID:
         if POP_ID[k] <= LAST_CONV:
             freqconv_file = open(output_folder + 'Convergence/Freq_Conf-{}.xvg'.format(POP_ID[k]), 'w')
@@ -529,14 +536,14 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
             last_f = p_f[0][0]
             last_i = p_f[0][1]
             for f, i in p_f:
-                for j in xrange(last_i, i):
+                for j in range(last_i, i):
                     freqs.append(last_f)
                 last_f = f
                 last_i = i
-            for j in xrange(last_i, loop_size-1):
+            for j in range(last_i, loop_size-1):
                 freqs.append(last_f)
 
-            ziptimeziped = zip(freqs, timeziped)
+            ziptimeziped = list(zip(freqs, timeziped))
             for f, t in ziptimeziped:
                 if float(t[0]) == 0.0:
                     freqconv_file.write('{:13.5f}   {:9.6f}\n'.format(float(t[0]), 0.0))

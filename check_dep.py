@@ -41,10 +41,15 @@ try:
 except:
     print('ERROR: could not import Counter from collections')
 try:
+    import timeit
+    print('OK: timeit')
+except:
+    print('ERROR: could not import timeit')  
+try:
     from itertools import imap
     print('OK: imap from itertools')
 except:
-    print('ERROR: could not import imap from itertools')
+    print('WARNING: could not import imap from itertools, if using Python 3.x ignore this warning')
 
 print('Checking for optional packages and libs...')
 
