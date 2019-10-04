@@ -1,6 +1,6 @@
 ################################################################################
 #                         Conformational Identifier                   	       #
-#	                      ConfID 1.0 (2019)                                #
+#	                      ConfID 1.0 (2019)                                    #
 #                                                                              #
 #  Please cite:                                                                #
 #  Marcelo D Polêto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an       #
@@ -17,28 +17,33 @@
 
 ### INSTALLATION GUIDE ###
 
-- Download ConfID.zip and unpack all files to your directory of choice.
+- ConfID requires Python distributions to be used. It works with both Python 2.7 and Python 3.x.
 
-- ConfID requires Python distributions to be used and it is optimized for Python 2.7, but also compatible with Python 3.x.
+- Download ConfID.zip from the github page (https://github.com/sbcblab/confid) and unpack all files to your directory of choice.
 
 - Open a terminal in the working directory and type:
 
 	$ python check_dep.py
 
-- This will check for all python libraries required to run ConfID. Usually, 
-ConfID requires the following external libraries:
+- This will check for all python libraries required to run ConfID. Usually, ConfID requires the following external libraries:
 
-	-> graphviz
-	-> matplotlib
-	-> numpy
+	-> graphviz (https://pypi.org/project/graphviz/)
+	-> matplotlib (https://matplotlib.org/)
+	-> numpy (https://numpy.org/)
 
-- If any of those are missing, you should install it before continuing.
+- If any of those are missing, you should install it before continuing. Please note that graphviz and matplotlib are only required if you intend to use the ConfID built-in plot capabilities.
 
+- NOTE ABOUT GRAPHVIZ:
+Before installing Graphviz for Python, make sure that the original software is installed (http://www.graphviz.org/download/). Before installing it, the following dependencies should be installed as well:
+$ sudo apt install -y libgd-dev
+$ sudo apt install -y fontconfig
+$ sudo apt install -y libcairo2-dev
+$ sudo apt install -y libpango1.0-dev
+$ sudo apt install -y libgts-dev
 
 ### ALIASING CONFID ###
 
-- In order to run ConfID in any given directory without carrying a lot of files 
-with you, we strongly advise you to alias ConfID.
+- In order to run ConfID in any given directory without carrying a lot of files with you, we strongly advise you to alias ConfID.
 
 - For this, copy the "ConfID" folder that was extracted before;
 
@@ -48,13 +53,12 @@ with you, we strongly advise you to alias ConfID.
 
 	alias confID='python /installation_folder_you_chose/ConfID/confID.py'
 
-	(example: alias confID='python /home/marcelo/Tools/ConfID/confID.py)
+	Example: alias confID='python /home/youruser/Tools/ConfID/confID.py
 
 - Then run on terminal:
 
 	$ source ~/.bashrc
 
-- After this, you should be able to run ConfID in your terminal at any given 
-directory by simple typing:
+- After this, you should be able to run ConfID in your terminal at any given directory simple by typing:
 
 	$ confID input.inp config

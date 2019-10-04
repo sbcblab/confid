@@ -47,9 +47,11 @@ if __name__ == '__main__':
     fun1          = ['sum']
     fun2          = ['aver']
 
-    input_files = sys.argv[1]
-
-    if len(sys.argv) > 2:
+    if len(sys.argv) == 1:
+        print("OK.")
+        sys.exit(0)
+    elif len(sys.argv) == 3:
+        input_files = sys.argv[1]
         config_file = sys.argv[2]
         print(">>>>>> READING INPUT:")
         print('\n>>> Parameters in {}:'.format(config_file))
@@ -116,7 +118,8 @@ if __name__ == '__main__':
                     print('{} = {}'.format(l[0], fun2))
                 else:
                     print('WARNING: Unidentified parameter ignored: {} {}\n'.format(l[0], l[1]))
-    else:
+    elif len(sys.argv) == 2:
+        input_files = sys.argv[1]
         print('USING DEFAULT CONFIG PARAMETERS:\n')
         print('RESULTS_FOLDER       = {}'.format(output_folder))
         print('DIH_POP_FOLDER       = {}'.format(xvgs_folder))
@@ -131,6 +134,9 @@ if __name__ == '__main__':
         print('TIME_DEPENDENT_STATS = {}'.format(show_kinetic))
         print('DATA_1               = {}'.format(fun1))
         print('DATA_2               = {}\n'.format(fun2))
+
+    else:
+        raise Exception('\nERROR: wrong number of parameters given, must be 1, 2 or 3.')
 
     if fp >= fv:
         raise Exception('\nERROR: FACTOR_VALLEY ({}) must be larger than FACTOR_PEAK ({}).\n'.format(fv, fp))
