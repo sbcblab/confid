@@ -1,5 +1,5 @@
-# Order: Distribution, Fluctuation
-DIH1.dist.xvg, DIH1.aver.xvg
-DIH2.dist.xvg, DIH2.aver.xvg
-DIH3.dist.xvg, DIH3.aver.xvg
-DIH4.dist.xvg, DIH4.aver.xvg
+# Fluctuation files
+DIH1.aver.xvg
+DIH2.aver.xvg
+DIH3.aver.xvg
+DIH4.aver.xvg

@@ -1,15 +1,15 @@
 RESULTS_FOLDER      	(string)                                                           defaults to Populations/
 DIH_POP_FOLDER        	(string)                                                           defaults to Dihedral_Regions/
 NETWORK_FOLDER      	(string)                                                           defaults to Networks/
-SHOW_Z             	(string)          [False / True]                                   defaults to False
+SHOW_Z             	    (string)          [False / True]                                   defaults to False
 NETWORK_CUTOFF       	(float)           [>= 0.0]                                         defaults to 0.01
 PLOT_NETWORK         	(string)          [False / True]                                   defaults to False
-CONVERGENCE_CUTOFF 	(float)           [>= 0.0]                                         defaults to 0.01
-FACTOR_PEAK        	(float)           [>= 1.0, < FACTOR_VALLEY]                        defaults to 50.0 
-FACTOR_VALLEY      	(float)           [>= 1.0, > FACTOR_PEAK]                          defaults to 60.0
+CONVERGENCE_CUTOFF 	    (float)           [>= 0.0]                                         defaults to 0.01
+FACTOR_PEAK        	    (float)           [>= 1.0, < FACTOR_VALLEY]                        defaults to 50.0 
+FACTOR_VALLEY      	    (float)           [>= 1.0, > FACTOR_PEAK]                          defaults to 60.0
 TIME_DEPENDENT_STATS    (string)          [False / True]                                   defaults to True
-DATA_1             	(list of strings) [sum / max / min / aver / std / median / count]  defaults to sum     
-DATA_2             	(list of strings) [sum / max / min / aver / std / median / count]  defaults to aver 
+DATA_1             	    (list of strings) [sum / max / min / aver / std / median / count]  defaults to sum     
+DATA_2             	    (list of strings) [sum / max / min / aver / std / median / count]  defaults to aver 
 
 ##############################
 
@@ -37,4 +37,3 @@ TIME-DEPENDENT PROPERTIES AVAILABLE:
 - std: standard deviation of the average time
 - median: median time spent in a population without leaving
 - count: amount of times of a transition event entering this population
-

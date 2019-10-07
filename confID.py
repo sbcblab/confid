@@ -5,33 +5,33 @@
 import timeit
 import sys
 
+import check_dep
 import count_populations
 import count_stay
-
-start = timeit.default_timer()
-
-print("""
-##############################################################################
-#                         Conformational Identifier                          #
-#                             ConfID 1.0 (2019)                              #
-#                                                                            #
-#  Please cite:                                                              #
-#  Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an     #
-#  analytical method for conformational characterization of small            #
-#  molecules using molecular dynamics trajectories, Bioinformatics, Volume   #
-#  X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                           #
-#                                                                            #
-#                     http://sbcb.inf.ufrgs.br/confid                        #
-#                                                                            #
-#             In case of bugs or suggestions, please contact us:             #
-#                          confidcontact@gmail.com                           #
-##############################################################################\n\n""")
-
-
-
-
+import aver2dist
 
 if __name__ == '__main__':
+
+    start = timeit.default_timer()
+
+    print("""
+    ##############################################################################
+    #                         Conformational Identifier                          #
+    #                             ConfID 1.0 (2019)                              #
+    #                                                                            #
+    #  Please cite:                                                              #
+    #  Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an     #
+    #  analytical method for conformational characterization of small            #
+    #  molecules using molecular dynamics trajectories, Bioinformatics, Volume   #
+    #  X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                           #
+    #                                                                            #
+    #                     http://sbcb.inf.ufrgs.br/confid                        #
+    #                                                                            #
+    #             In case of bugs or suggestions, please contact us:             #
+    #                          confidcontact@gmail.com                           #
+    ##############################################################################\n\n""")    
+
+    check_dep.check()
 
     output_folder = 'Populations/'
     xvgs_folder   = 'Dihedral_Regions/'
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     fun2          = ['aver']
 
     if len(sys.argv) == 1:
-        print("OK.")
+        print("Welcome to ConfID! Everything looks good so far.\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.")
         sys.exit(0)
     elif len(sys.argv) == 3:
         input_files = sys.argv[1]
@@ -136,7 +136,7 @@ if __name__ == '__main__':
         print('DATA_2               = {}\n'.format(fun2))
 
     else:
-        raise Exception('\nERROR: wrong number of parameters given, must be 1, 2 or 3.')
+        raise Exception('\nERROR: wrong number of parameters given to ConfID: {} {}\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.'.format(len(sys.argv[1:]), sys.argv[1:]))
 
     if fp >= fv:
         raise Exception('\nERROR: FACTOR_VALLEY ({}) must be larger than FACTOR_PEAK ({}).\n'.format(fv, fp))
@@ -144,7 +144,10 @@ if __name__ == '__main__':
     if show_z and plot_graph:
         print('\nWARNING: plotting the graph figures may become too slow if the Z populations are to be shown, please consider setting either SHOW_Z or PLOT_NETWORK to False, or to use a large NETWORK_CUTOFF.\n')
 
-    POP_ID = count_populations.main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv)
+
+    new_inputs = aver2dist.convert(input_files)
+
+    POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv)
 
     if show_kinetic:
         print("\n#####################################\n>>>>>> CONFORMATIONAL TIME-DEPENDENT STATISTICS:")
@@ -162,7 +165,7 @@ if __name__ == '__main__':
                 print(path)
                 count_stay.main(path, f1, f2, POP_ID)
 
-        with open(input_files, 'r') as infs:
+        with open(new_inputs, 'r') as infs:
             files_paths = []
             for line in infs:
                 if line[0] == '#':
@@ -185,6 +188,6 @@ if __name__ == '__main__':
                     count_stay.main(fp, f1, f2)
         print ('==\nFinished.\n')
 
-stop = timeit.default_timer()
+    stop = timeit.default_timer()
 
-print('Runtime: {} sec'.format(round(stop - start,2)))
+    print('Runtime: {} sec'.format(round(stop - start,2)))
