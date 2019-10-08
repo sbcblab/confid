@@ -16,21 +16,21 @@ if __name__ == '__main__':
     start = timeit.default_timer()
 
     print("""
-    ##############################################################################
-    #                         Conformational Identifier                          #
-    #                             ConfID 1.0 (2019)                              #
-    #                                                                            #
-    #  Please cite:                                                              #
-    #  Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an     #
-    #  analytical method for conformational characterization of small            #
-    #  molecules using molecular dynamics trajectories, Bioinformatics, Volume   #
-    #  X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                           #
-    #                                                                            #
-    #                     http://sbcb.inf.ufrgs.br/confid                        #
-    #                                                                            #
-    #             In case of bugs or suggestions, please contact us:             #
-    #                          confidcontact@gmail.com                           #
-    ##############################################################################\n\n""")    
+    ###########################################################################
+    #                        Conformational Identifier                        #
+    #                            ConfID 1.0 (2019)                            #
+    #                                                                         #
+    # Please cite:                                                            #
+    # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
+    # analytical method for conformational characterization of small          #
+    # molecules using molecular dynamics trajectories, Bioinformatics, Volume #
+    # X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                         #
+    #                                                                         #
+    #                    http://sbcb.inf.ufrgs.br/confid                      #
+    #                                                                         #
+    #            In case of bugs or suggestions, please contact us:           #
+    #                         confidcontact@gmail.com                         #
+    ###########################################################################\n\n""")    
 
     check_dep.check()
 
