@@ -1,7 +1,10 @@
 import numpy as np
 import os
 
-def convert(input_files):
+def convert(input_files, xvgs_folder):
+
+    if not os.path.exists(xvgs_folder):
+        os.makedirs(xvgs_folder)
 
     files_paths = []
     with open(input_files, 'r') as infs:
@@ -17,7 +20,7 @@ def convert(input_files):
                 name, extension = os.path.splitext(name)
                 if name != '.aver':
                     name = name.replace('.aver','')
-                dist_file = aver_file.replace(os.path.basename(aver_file), name+'.dist.xvg')
+                dist_file = xvgs_folder+aver_file.replace(os.path.basename(aver_file), name+'.dist.xvg')
                 files_paths.append([dist_file, aver_file])
 
                 angles = []
@@ -47,7 +50,7 @@ def convert(input_files):
 
     new_inputs = input_files.replace(os.path.basename(input_files), '__newinputs.inp')
     with open(new_inputs, 'w') as ni:
-        ni.write('#This file was automatically created by ConfID. Please do not try to use it as an input for the program, nor change or delete it while ConfID is running.')
+        ni.write('#This file was automatically created by ConfID.\n#Please do not try to use it as an input for the program, nor change or delete it while ConfID is running.\n#This file will self destruct.')
         ni.write('\n#Order: Distribution, Fluctuation')
         for fp in files_paths:
             ni.write('\n{}, {}'.format(fp[0], fp[1]))
