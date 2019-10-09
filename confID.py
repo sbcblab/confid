@@ -146,7 +146,7 @@ if __name__ == '__main__':
         print('\nWARNING: plotting the graph figures may become too slow if the Z populations are to be shown, please consider setting either SHOW_Z or PLOT_NETWORK to False, or to use a large NETWORK_CUTOFF.\n')
 
 
-    new_inputs = aver2dist.convert(input_files, xvgs_folder)
+    new_inputs = aver2dist.convert(input_files)
 
     POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv)
 

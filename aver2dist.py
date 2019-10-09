@@ -1,10 +1,10 @@
 import numpy as np
 import os
 
-def convert(input_files, xvgs_folder):
+def convert(input_files, dihedral_folder='dihedral/'):
 
-    if not os.path.exists(xvgs_folder):
-        os.makedirs(xvgs_folder)
+    if not os.path.exists(dihedral_folder):
+        os.makedirs(dihedral_folder)
 
     files_paths = []
     with open(input_files, 'r') as infs:
@@ -20,7 +20,7 @@ def convert(input_files, xvgs_folder):
                 name, extension = os.path.splitext(name)
                 if name != '.aver':
                     name = name.replace('.aver','')
-                dist_file = xvgs_folder+aver_file.replace(os.path.basename(aver_file), name+'.dist.xvg')
+                dist_file = dihedral_folder+aver_file.replace(os.path.basename(aver_file), name+'.dist.xvg')
                 files_paths.append([dist_file, aver_file])
 
                 angles = []
