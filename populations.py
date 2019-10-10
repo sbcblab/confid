@@ -25,6 +25,9 @@ class pops:
                    l = line.split()
                    angles.append(int(l[0]))
                    dists.append(float(l[1]))
+
+        self.data_file_name = data_file_name.replace('Dihedrals/', '')
+
         angles = np.array(angles)
         dists = np.array(dists)
 

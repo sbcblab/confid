@@ -1,7 +1,7 @@
 import numpy as np
 import os
 
-def convert(input_files, dihedral_folder='dihedral/'):
+def convert(input_files, dihedral_folder='Dihedrals/'):
 
     if not os.path.exists(dihedral_folder):
         os.makedirs(dihedral_folder)

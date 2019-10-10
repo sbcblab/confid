@@ -207,8 +207,8 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                     s = files[0][0:files[0].rindex('/')+1]
                     #if not os.path.exists(output_folder + s):
                     #    os.makedirs(output_folder + s)
-                    if not os.path.exists(xvgs_folder + s):
-                        os.makedirs(xvgs_folder + s)
+                    #if not os.path.exists(xvgs_folder + s):
+                    #    os.makedirs(xvgs_folder + s)
                     if not os.path.exists(graphs_folder + s):
                         os.makedirs(graphs_folder + s)
                     if not os.path.exists(time_folder + s):
@@ -395,7 +395,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
             nodes = {}
             edges = {}
 
-            with open(xvgs_folder + k.replace('dist.xvg', 'peaks.xvg'), 'w') as pt_file:
+            with open(xvgs_folder + k.replace('dist.xvg', 'peaks.xvg').replace('Dihedrals/', ''), 'w') as pt_file:
                 with open(time_folder + k.replace('dist.xvg', 'transitions.txt'), 'w') as tran_file:
                     pt_file.write('@    title "Region Peak Angle: "\n@    xaxis  label "Time"\n@    yaxis  label "Peak (degrees)"\n@TYPE xy\n')
                     transitions = 0
