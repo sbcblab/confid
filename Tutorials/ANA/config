@@ -2,12 +2,12 @@ RESULTS_FOLDER 		 Populations/
 DIH_POP_FOLDER 		 Dihedral_Regions/
 NETWORK_FOLDER 		 Networks/
 TIME_STATS_FOLDER	 Time_Dependent_Stats/
-SHOW_Z 			 False
+SHOW_Z 			     False
 NETWORK_CUTOFF 		 0.01
 PLOT_NETWORK 		 True
 CONVERGENCE_CUTOFF 	 0.01
-FACTOR_PEAK		 50.0
+FACTOR_PEAK		     50.0
 FACTOR_VALLEY		 60.0
-TIME_DEPENDENT_STATS     True
-DATA_1	 		 sum
-DATA_2	 		 aver
+TIME_DEPENDENT_STATS True
+DATA_1	 		     sum
+DATA_2	 		     aver

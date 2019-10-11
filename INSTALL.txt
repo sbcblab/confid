@@ -1,6 +1,6 @@
 ################################################################################
 #                         Conformational Identifier                   	       #
-#	                      ConfID 1.0 (2019)                                    #
+#	                      ConfID 0.1 (2019)                                    #
 #                                                                              #
 #  Please cite:                                                                #
 #  Marcelo D Polêto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an       #

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     print("""
     ###########################################################################
     #                        Conformational Identifier                        #
-    #                            ConfID 1.0 (2019)                            #
+    #                            ConfID 0.1 (2019)                            #
     #                                                                         #
     # Please cite:                                                            #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
@@ -31,6 +31,11 @@ if __name__ == '__main__':
     #            In case of bugs or suggestions, please contact us:           #
     #                         confidcontact@gmail.com                         #
     ###########################################################################\n\n""")    
+
+    try:
+        print('You are running Python {}'.format(sys.version))
+    except:
+        pass
 
     check_dep.check()
 
