@@ -240,13 +240,22 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
             print(k, DATA[k][0].points_file)
             a = []
             t = []
+            t0 = 0.0
+            td = 10.0
             for line in points:
                 if '#' in line or '@' in line:
                     pass
                 else:
                     line_split = line.replace(',', ' ').split()
-                    angle = float(line_split[1])
-                    time  = float(line_split[0])
+                    if len(line_split) == 2:
+                        angle = float(line_split[1])
+                        time  = float(line_split[0])
+                    elif len(line_split) == 1:
+                        angle = float(line_split[0])
+                        time  = t0 + td
+                        t0    = time
+                    else:
+                        raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}!\n{}'.format(len(line_split), DATA[k][0].points_file, line_split))
                     t.append(time)
                     found = False
                     for r in DATA[k]:

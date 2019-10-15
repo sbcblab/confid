@@ -27,10 +27,14 @@ def convert(input_files, dihedral_folder='Dihedrals/'):
 
                 with open(aver_file, 'r') as af:
                     for line in af:
-                        l = line.rstrip()
-                        l = l.split()
+                        l = line.rstrip().replace(',', ' ').split()
                         if l[0][0] != "#" and l[0][0] != "@":
-                            angles.append(float(l[1]))
+                            if len(l) == 2:
+                                angles.append(float(l[1]))
+                            elif len(l) == 1:
+                                angles.append(float(l[0]))
+                            else:
+                                raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}:\n{}'.format(len(l), aver_file, l))
 
                 angles = np.array(angles)
                 avg_angle = round(angles.mean(), 4)
