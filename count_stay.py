@@ -63,7 +63,11 @@ def main(input_file, fun1, fun2, POP_ID=None):
     x = []
     y = []
     l = []
-    max_k_len = max(imap(len, stay))
+
+    try:
+        max_k_len = max(imap(len, stay))
+    except:
+        max_k_len = 10
 
     if POP_ID != None:
         keys = list(POP_ID.keys())

@@ -244,8 +244,9 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                 if '#' in line or '@' in line:
                     pass
                 else:
-                    angle = float(line.split()[1])
-                    time  = float(line.split()[0])
+                    line_split = line.replace(',', ' ').split()
+                    angle = float(line_split[1])
+                    time  = float(line_split[0])
                     t.append(time)
                     found = False
                     for r in DATA[k]:
