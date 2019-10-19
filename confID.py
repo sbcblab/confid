@@ -57,11 +57,25 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         print("Welcome to ConfID! Everything looks good so far.\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.")
         sys.exit(0)
+    
     elif len(sys.argv) == 3:
         input_files = sys.argv[1]
         config_file = sys.argv[2]
         print(">>>>>> READING INPUT:")
         print('\n>>> Parameters in {}:'.format(config_file))
+
+        try:
+            with open(input_files, 'r') as ti:
+                pass
+        except PermissionError:
+            raise Exception("\n\nIMPORTANT! Are you trying to read or write files in a removable media (pendrives, external HDs, etc)?\nThen you must give ConfID access to removable media after installing it by running the following command in your terminal:\nsnap connect confid:removable-media")
+
+        try:
+            with open(config_file, 'r') as tc:
+                pass
+        except PermissionError:
+            raise Exception("\n\nIMPORTANT! Are you trying to read or write files in a removable media (pendrives, external HDs, etc)?\nThen you must give ConfID access to removable media after installing it by running the following command in your terminal:\nsnap connect confid:removable-media")
+
         with open(config_file, 'r') as cf:
             for line in cf:
                 l = line.rstrip()
@@ -91,19 +105,19 @@ if __name__ == '__main__':
                         try:
                             import graphviz
                         except:
-                            raise Exception("ERROR: graphviz package needs to be installed if PLOT_NETWORK is True, but it couldn't be imported.")
+                            raise Exception("\n\nERROR: graphviz package needs to be installed if PLOT_NETWORK is True, but it couldn't be imported.")
                 elif l[0].upper() == 'CONVERGENCE_CUTOFF':
                     convergence_cutoff = float(l[1])
                     print('{} = {}'.format(l[0], convergence_cutoff))
                 elif l[0].upper() == 'FACTOR_PEAK':
                     fp = float(l[1])
                     if fp < 1.0:
-                        raise Exception('\nERROR: FACTOR_PEAK ({}) must be larger or equal to 1.0.\n'.format(fp))
+                        raise Exception('\n\nERROR: FACTOR_PEAK ({}) must be larger or equal to 1.0.\n'.format(fp))
                     print('{} = {}'.format(l[0], fp))
                 elif l[0].upper() == 'FACTOR_VALLEY':
                     fv = float(l[1])
                     if fv < 1.0:
-                        raise Exception('\nERROR: FACTOR_VALLEY ({}) must be larger or equal to 1.0.\n'.format(fv))
+                        raise Exception('\n\nERROR: FACTOR_VALLEY ({}) must be larger or equal to 1.0.\n'.format(fv))
                     print('{} = {}'.format(l[0], fv))
                 elif l[0].upper() == 'TIME_DEPENDENT_STATS':
                     show_kinetic = l[1].lower() == 'true'
@@ -112,7 +126,7 @@ if __name__ == '__main__':
                         try:
                             import matplotlib.pyplot
                         except:
-                            raise Exception("ERROR: matplotlib.pyplot package needs to be installed if TIME_DEPENDENT_STATS is True, but it couldn't be imported.")
+                            raise Exception("\n\nERROR: matplotlib.pyplot package needs to be installed if TIME_DEPENDENT_STATS is True, but it couldn't be imported.")
                 elif l[0].upper() == 'DATA_1':
                     fun1 = []
                     for i in range(1, len(l)):
@@ -124,9 +138,18 @@ if __name__ == '__main__':
                         fun2.append(l[i].lower())
                     print('{} = {}'.format(l[0], fun2))
                 else:
-                    print('WARNING: Unidentified parameter ignored: {} {}\n'.format(l[0], l[1]))
+                    print('\nWARNING: Unidentified parameter ignored: {} {}\n'.format(l[0], l[1]))
+    
     elif len(sys.argv) == 2:
         input_files = sys.argv[1]
+
+        try:
+            with open(input_files, 'r') as ti:
+                pass
+        except PermissionError:
+            raise Exception("\n\nIMPORTANT! Are you trying to read or write files in a removable media (pendrives, external HDs, etc)?\nThen you must give ConfID access to removable media after installing it by running the following command in your terminal:\nsnap connect confid:removable-media")
+
+
         print('USING DEFAULT CONFIG PARAMETERS:\n')
         print('RESULTS_FOLDER       = {}'.format(output_folder))
         print('DIH_POP_FOLDER       = {}'.format(xvgs_folder))
@@ -143,10 +166,10 @@ if __name__ == '__main__':
         print('DATA_2               = {}\n'.format(fun2))
 
     else:
-        raise Exception('\nERROR: wrong number of parameters given to ConfID: {} {}\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.'.format(len(sys.argv[1:]), sys.argv[1:]))
+        raise Exception('\n\nERROR: wrong number of parameters given to ConfID: {} {}\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.'.format(len(sys.argv[1:]), sys.argv[1:]))
 
     if fp >= fv:
-        raise Exception('\nERROR: FACTOR_VALLEY ({}) must be larger than FACTOR_PEAK ({}).\n'.format(fv, fp))
+        raise Exception('\n\nERROR: FACTOR_VALLEY ({}) must be larger than FACTOR_PEAK ({}).\n'.format(fv, fp))
 
     if show_z and plot_graph:
         print('\nWARNING: plotting the graph figures may become too slow if the Z populations are to be shown, please consider setting either SHOW_Z or PLOT_NETWORK to False, or to use a large NETWORK_CUTOFF.\n')

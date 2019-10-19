@@ -26,7 +26,7 @@ with open("README.md", "r") as fh:
 os.system("dot -c")
 
 setuptools.setup(
-    name="confID",
+    name="confid",
     version="0.1.0",
     author="Marcelo D. Polêto; Bruno Iochins Grisci; Marcio Dorn; Hugo Verli",
     author_email="bigrisci@inf.ufrgs.br",
