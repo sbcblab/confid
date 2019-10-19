@@ -125,6 +125,7 @@ def show_graph(nodes, edges, first_node, last_node, cutoff, filename, plot_graph
         import graphviz
 
         dot = graphviz.Digraph()
+        dot.format = 'eps'
         dot.attr('node', shape='circle')
         dot.attr('node', fixedsize='true')
         dot.attr('node', labelfontsize='10')
@@ -134,7 +135,7 @@ def show_graph(nodes, edges, first_node, last_node, cutoff, filename, plot_graph
         for n1, n2 in edges.keys():
             w = edges[(n1,n2)]/total_weight
             if w >= cutoff:
-                dot.edge(str(n1), str(n2), label=str(round(w, 3)), constraint='true', fixedsize='true',penwidth=str(w*10), weight=str(1.0/w), labelfontsize='7')
+                dot.edge(str(n1), str(n2), label=str(round(w, 3)), constraint='true', fixedsize='true', penwidth=str(w*10), weight=str(1.0/w), labelfontsize='7')
                 show.add(n1)
                 show.add(n2)
 
@@ -241,7 +242,9 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
             a = []
             t = []
             t0 = 0.0
-            td = 10.0
+            td = 1.0
+            locked2 = False
+            locked1 = False
             for line in points:
                 if '#' in line or '@' in line:
                     pass
@@ -250,10 +253,16 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                     if len(line_split) == 2:
                         angle = float(line_split[1])
                         time  = float(line_split[0])
+                        locked2 = True
+                        if locked1:
+                            raise Exception('ERROR: extra value in the dihedral file {}!\n{}'.format(DATA[k][0].points_file, line_split))
                     elif len(line_split) == 1:
                         angle = float(line_split[0])
                         time  = t0 + td
                         t0    = time
+                        locked1 = True
+                        if locked2:
+                            raise Exception('ERROR: missing value in the dihedral file {}!\n{}'.format(DATA[k][0].points_file, line_split))
                     else:
                         raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}!\n{}'.format(len(line_split), DATA[k][0].points_file, line_split))
                     t.append(time)

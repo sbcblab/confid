@@ -75,6 +75,13 @@ def check(print_ok=False):
         print('WARNING: could not import graphviz')
         print('WARNING: graphviz is needed if PLOT_GRAPH is True.')
     try:
+        import pydot
+        if print_ok:
+            print('OK: pydot')
+    except:
+        print('WARNING: could not import pydot')
+        print('WARNING: pydot is needed if PLOT_GRAPH is True.')        
+    try:
         import matplotlib.pyplot as plt
         if print_ok:
             print('OK: matplotlib.pyplot')

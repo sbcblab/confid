@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #Bruno Iochins Grisci e Marcelo Depolo Poleto
 #APRIL/2019
 #http://sbcb.inf.ufrgs.br/confid
@@ -18,9 +19,8 @@ if __name__ == '__main__':
     print("""
     ###########################################################################
     #                        Conformational Identifier                        #
-    #                            ConfID 0.1 (2019)                            #
+    #                            ConfID 0.1.0 (2019)                          #
     #                                                                         #
-    # Please cite:                                                            #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
     # analytical method for conformational characterization of small          #
     # molecules using molecular dynamics trajectories, Bioinformatics, Volume #
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     #                    http://sbcb.inf.ufrgs.br/confid                      #
     #                                                                         #
     #            In case of bugs or suggestions, please contact us:           #
-    #                         confidcontact@gmail.com                         #
+    #                         bigrisci@inf.ufrgs.br                           #
     ###########################################################################\n\n""")    
 
     try:
