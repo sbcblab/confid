@@ -16,7 +16,7 @@ Marcelo D. Polêto, Bruno Iochins Grisci, Marcio Dorn, Hugo Verli
 - Institute of Informatics, Federal University of Rio Grande do Sul, Porto Alegre, RS, Brazil
 - Departamento de Biologia Geral, Universidade Federal de Viçosa, Viçosa, MG, Brazil
 
-E-mail: confidcontact@gmail.com
+E-mail: marcelo.poleto@ufv.br / bigrisci@inf.ufrgs.br
 
 http://sbcb.inf.ufrgs.br/confid
 

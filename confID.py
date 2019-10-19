@@ -29,6 +29,7 @@ if __name__ == '__main__':
     #                    http://sbcb.inf.ufrgs.br/confid                      #
     #                                                                         #
     #            In case of bugs or suggestions, please contact us:           #
+    #                         marcelo.poleto@ufv.br                           #
     #                         bigrisci@inf.ufrgs.br                           #
     ###########################################################################\n\n""")    
 

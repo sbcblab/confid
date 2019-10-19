@@ -1,0 +1,43 @@
+name: confID
+version: 0.1.0
+summary: An analytical method for conformational characterization of small molecules using molecular dynamics trajectories.
+description: |
+  Conformational generation is a recurrent challenge in early phases of drug design, mostly due to the task of making sense between the number of conformers generated and their relevance for biological purposes.
+  In this sense, ConfID, a Python-based computational tool, was designed to identify and characterize conformational populations of drug-like molecules sampled through molecular dynamics simulations.
+  By using molecular dynamics (MD) simulations (and assuming accurate parameters are used), ConfID can identify all conformational populations sampled in the presence of solvent and quantify their relative abundance, while harnessing the benefits of MD and calculating time-dependent properties of each conformational population identified.
+  To read a complete ConfID documentation and tutorials, access: http://sbcb.inf.ufrgs.br/confid
+confinement: strict
+base: core18
+
+parts:
+  confID:
+    plugin: python
+    python-version: python3
+    source: .
+    stage-packages:
+      - python3 
+      - python3-pil
+      - python3-tk
+      - graphviz      
+    build-packages:
+      - libgd-dev
+      - fontconfig
+      - libcairo2-dev
+      - libgirepository1.0-dev
+      - libpango1.0-dev
+      - libgts-dev     
+      - libblas-dev
+      - libgtk-3-dev
+      - graphviz
+    python-packages:
+      - numpy
+      - matplotlib
+      - pprint
+      - pydot
+      - pyparsing
+      - pycairo
+      - graphviz      
+
+apps:
+  confID:
+    command: confID.py
