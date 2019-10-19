@@ -106,12 +106,10 @@ class pops:
                 start = max([v for v in valleys if v < p])
             except:
                 start = 0
-                #raise Exception('\nERROR: Valley not found! Try using a lower FV (<{}) to solve the problem.\n'.format(self.fv))
             try:
                 end   = min([v for v in valleys if v > p])
             except:
                 end   = -1
-                #raise Exception('\nERROR: Valley not found! Try using a lower FV (<{}) to solve the problem.\n'.format(self.fv))
             if angles[start] <= 180 and angles[end] <= 180:
                 regions.append((angles[start], angles[end]))
             if angles[start] > 180  and angles[end] > 180:

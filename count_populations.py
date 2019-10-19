@@ -327,8 +327,8 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
         major_freq   = 0.0
 
         if not show_z:
-            top_file.write('Most common (excluding Z regions):')
-            print('Most common (excluding Z regions):')
+            top_file.write('Most common (excluding Z-regions):')
+            print('Most common (excluding Z-regions):')
         else:
             top_file.write('Most common:')
             print('Most common:')
@@ -366,8 +366,8 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
         top_file.write("\nValid number of frames:     {:6f} ({:6d})".format(major_freq, major_points))
         print("\nValid number of frames:     {:6f} ({:6d})".format(major_freq, major_points))
 
-        top_file.write("\nFrames in Z region:         {:6f} ({:6d})".format(z_freq, z_points))
-        print("Frames in Z region:         {:6f} ({:6d})".format(z_freq, z_points))
+        top_file.write("\nFrames in Z-region:         {:6f} ({:6d})".format(z_freq, z_points))
+        print("Frames in Z-region:         {:6f} ({:6d})".format(z_freq, z_points))
 
         top_file.write("\nTotal number of frames:     {:6f} ({:6d})".format(total_freq, total_points))
         print("Total number of frames:     {:6f} ({:6d})".format(total_freq, total_points))

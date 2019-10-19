@@ -1,18 +1,18 @@
-################################################################################
-#                         Conformational Identifier                   	       #
-#	                      ConfID 0.1 (2019)                                    #
-#                                                                              #
-#  Please cite:                                                                #
-#  Marcelo D Polêto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an       #
-#  analytical method for conformational characterization of small              #
-#  molecules using molecular dynamics trajectories, Bioinformatics, Volume     #
-#  X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                             #
-#                                                                              #
-#                                                                              #
-#         In case of bugs or suggestions, please contact us:                   #
-#                      confidcontact@gmail.com                                 # 
-#                                                                              #
-################################################################################
+    ###########################################################################
+    #                        Conformational Identifier                        #
+    #                            ConfID 0.1.0 (2019)                          #
+    #                                                                         #
+    # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
+    # analytical method for conformational characterization of small          #
+    # molecules using molecular dynamics trajectories, Bioinformatics, Volume #
+    # X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                         #
+    #                                                                         #
+    #                    http://sbcb.inf.ufrgs.br/confid                      #
+    #                                                                         #
+    #            In case of bugs or suggestions, please contact us:           #
+    #                         marcelo.poleto@ufv.br                           #
+    #                         bigrisci@inf.ufrgs.br                           #
+    ###########################################################################
 
 
 ### INSTALLATION GUIDE ###
