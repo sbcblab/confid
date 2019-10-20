@@ -15,12 +15,12 @@ def convert(input_files, dihedral_folder='Dihedrals/'):
                 pass
             else:
                 files = line.split(',')
-                aver_file = files[0].rstrip().replace(' ', '')
+                aver_file = input_files.replace(os.path.basename(input_files), '') + files[0].rstrip().replace(' ', '')
                 name = os.path.basename(aver_file)
                 name, extension = os.path.splitext(name)
                 if name != '.aver':
                     name = name.replace('.aver','')
-                dist_file = dihedral_folder+aver_file.replace(os.path.basename(aver_file), name+'.dist.xvg')
+                dist_file = dihedral_folder+os.path.basename(aver_file).replace(os.path.basename(aver_file), name+'.dist.xvg')
                 files_paths.append([dist_file, aver_file])
 
                 angles = []

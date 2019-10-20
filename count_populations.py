@@ -206,20 +206,6 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
 
                 if '/' in files[0]:
                     s = files[0][0:files[0].rindex('/')+1]
-                    #if not os.path.exists(output_folder + s):
-                    #    os.makedirs(output_folder + s)
-                    #if not os.path.exists(xvgs_folder + s):
-                    #    os.makedirs(xvgs_folder + s)
-                    if not os.path.exists(graphs_folder + s):
-                        os.makedirs(graphs_folder + s)
-                    if not os.path.exists(time_folder + s):
-                        os.makedirs(time_folder + s)
-                if '/' in files[1]:
-                    s = files[1][0:files[1].rindex('/')+1]
-                    if not os.path.exists(output_folder + s):
-                        os.makedirs(output_folder + s)
-                    if not os.path.exists(xvgs_folder + s):
-                        os.makedirs(xvgs_folder + s)
                     if not os.path.exists(graphs_folder + s):
                         os.makedirs(graphs_folder + s)
                     if not os.path.exists(time_folder + s):

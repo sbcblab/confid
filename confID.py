@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+# -*- coding:utf-8 -*-
 #Bruno Iochins Grisci e Marcelo Depolo Poleto
 #APRIL/2019
 #http://sbcb.inf.ufrgs.br/confid
-# -*- coding:utf-8 -*-
+
 import timeit
 import sys
 import os
@@ -13,8 +14,6 @@ import count_stay
 import aver2dist
 
 if __name__ == '__main__':
-
-    start = timeit.default_timer()
 
     print("""
     ###########################################################################
@@ -31,13 +30,15 @@ if __name__ == '__main__':
     #            In case of bugs or suggestions, please contact us:           #
     #                         marcelo.poleto@ufv.br                           #
     #                         bigrisci@inf.ufrgs.br                           #
+    #                                                                         #
+    # LICENSE                                         ® BR512019001928-8 2019 #
     ###########################################################################\n\n""")    
 
     try:
         print('You are running Python {}'.format(sys.version))
     except:
         pass
-
+    start = timeit.default_timer()
     check_dep.check()
 
     output_folder = 'Populations/'
