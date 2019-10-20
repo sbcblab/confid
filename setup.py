@@ -28,6 +28,7 @@ os.system("dot -c")
 setuptools.setup(
     name="confid",
     version="0.1.0",
+    license="LGPL-3.0-or-later",
     author="Marcelo D. Polêto; Bruno Iochins Grisci; Marcio Dorn; Hugo Verli",
     author_email="bigrisci@inf.ufrgs.br",
     description="ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories.",
