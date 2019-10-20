@@ -78,10 +78,10 @@ def main(input_file, fun1, fun2, POP_ID=None):
         stay[k] = np.array(stay[k])
         if POP_ID != None:
             pid = POP_ID[k]
-            s = 'P#{:4d} {:{mkl}s}: # sum: {:8.1f} # max: {:8.1f} # min: {:8.1f} # aver: {:8.3f} # std: {:8.3f} # median: {:8.3f} # count: {:8d}'.format(pid, k, stay[k].sum(), stay[k].max(), stay[k].min(), stay[k].mean(), stay[k].std(), np.median(stay[k]), len(stay[k]), mkl=max_k_len)
+            s = 'P#{:4d} {:{mkl}s}: # sum: {:8.1f} # max: {:8.1f} # min: {:8.1f} # aver: {:8.3f} # std: {:8.3f} # median: {:8.3f} # count: {:8d}'.format(pid, k, round(stay[k].sum(), 3), round(stay[k].max(), 3), round(stay[k].min(), 3), round(stay[k].mean(), 3), round(stay[k].std(), 3), round(np.median(stay[k]), 3), len(stay[k]), mkl=max_k_len)
         else:
-            s = '{:{mkl}s}: # sum: {:8.1f} # max: {:8.1f} # min: {:8.1f} # aver: {:8.3f} # std: {:8.3f} # median: {:8.3f} # count: {:8d}'.format(k, stay[k].sum(), stay[k].max(), stay[k].min(), stay[k].mean(), stay[k].std(), np.median(stay[k]), len(stay[k]), mkl=max_k_len)
-        result.append((f1(stay[k]), f2(stay[k]), s))
+            s = '{:{mkl}s}: # sum: {:8.1f} # max: {:8.1f} # min: {:8.1f} # aver: {:8.3f} # std: {:8.3f} # median: {:8.3f} # count: {:8d}'.format(k, round(stay[k].sum(), 3), round(stay[k].max(), 3), round(stay[k].min(), 3), round(stay[k].mean(), 3), round(stay[k].std(), 3), round(np.median(stay[k]), 3), len(stay[k]), mkl=max_k_len)
+        result.append((round(f1(stay[k]),3), round(f2(stay[k]),3), s))
 
         x.append(f1(stay[k]))
         y.append(f2(stay[k]))
