@@ -1,0 +1,14 @@
+*.pyc
+__pycache__/
+Networks/
+Dihedral_Regions/
+Populations/    
+Time_Dependent_Stats/
+*/Networks/
+*/Dihedral_Regions/
+*/Populations/
+*/Time_Dependent_Stats/
+*.spec
+build/
+dist/
+*.zip
