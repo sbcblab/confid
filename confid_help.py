@@ -23,7 +23,7 @@ header    = """
     # LGPL-3.0-or-later                               ® BR512019001928-8 2019 #
     ###########################################################################\n\n"""
 
-welcome   = "Welcome to ConfID! Everything looks good so far.\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.\nHave a nice \"ConfIDent\" analysis! =)"
+welcome   = "Welcome to ConfID! Everything looks good so far.\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.\nRun \"confid -h\" if you need help.\nHave a nice \"ConfIDent\" analysis! =)"
 
 help_text = """
     ###########################################################################
@@ -44,6 +44,49 @@ help_text = """
         Path/to/file/file1.aver.xvg
         Path/to/file/file2.aver.xvg
         Path/to/file/fileN.aver.xvg
+
+    ##
+
+    The *aver.xvg files listed in input.inp are .xvg files with the output
+    of your simulation. Each one of these files lists the average value of 
+    a single torsion angle for each time step of the simulation. They can
+    look something like this:
+
+        # This file was created Fri Feb  1 14:25:33 2019
+        # Created by:
+        #                   :-) GROMACS - gmx angle, VERSION 5.1.4 (-:
+        # 
+        # Executable:   /usr/local/gromacs_514/bin//gmx_514
+        # Data prefix:  /usr/local/gromacs_514
+        # Command line:
+        #   gmx_514 angle -f ANA.SIM-nojump.xtc -type dihedral 
+        #                 -n dihedrals.ndx -ov DIH2.aver.xvg 
+        #                 -od DIH2.dist.xvg
+        # gmx angle is part of G R O M A C S:
+        #
+        # Green Red Orange Magenta Azure Cyan Skyblue
+        #
+        @    title "Average Angle: DIH2"
+        @    xaxis  label "Time (ps)"
+        @    yaxis  label "Angle (degrees)"
+        @TYPE xy
+           0.00000   -80.858
+          10.00000  -103.279
+          20.00000   -80.045
+          30.00000   -88.705
+          40.00000   -85.026
+
+    This file for instance was created using the GROMACS tool, with the
+    command:
+    $ gmx_514 angle -f ANA.SIM-nojump.xtc -type dihedral -n dihedrals.ndx 
+                    -ov DIH2.aver.xvg -od DIH2.dist.xvg
+
+    The lines with a # or a @ are ignored by ConfID.
+    This file has the average values of the dihedral angle "DIH2" for each
+    time step of the simulation. The time steps are the first column, and
+    were measured in ps. The average values are in the second column, and
+    were measured in degrees. Note that the columns are divided by white
+    spaces, and that each line only contains one time step.
 
     ##
 
