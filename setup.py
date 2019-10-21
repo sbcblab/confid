@@ -19,6 +19,7 @@ import count_populations
 import count_stay
 import aver2dist
 import populations
+import confid_help
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -36,10 +37,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/sbcblab/confid",
     packages=setuptools.find_packages(),
-    py_modules=["check_dep","count_populations","count_stay","aver2dist","populations"],
+    py_modules=["check_dep","count_populations","count_stay","aver2dist","populations", "confid_help"],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: LGPL-3.0-or-later",
         "Operating System :: OS Independent",
     ],
     python_requires='>=2.7',

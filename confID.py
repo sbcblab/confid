@@ -12,27 +12,11 @@ import check_dep
 import count_populations
 import count_stay
 import aver2dist
+import confid_help
 
 if __name__ == '__main__':
 
-    print("""
-    ###########################################################################
-    #                        Conformational Identifier                        #
-    #                            ConfID 0.1.0 (2019)                          #
-    #                                                                         #
-    # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
-    # analytical method for conformational characterization of small          #
-    # molecules using molecular dynamics trajectories, Bioinformatics, Volume #
-    # X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                         #
-    #                                                                         #
-    #                    http://sbcb.inf.ufrgs.br/confid                      #
-    #                                                                         #
-    #            In case of bugs or suggestions, please contact us:           #
-    #                         marcelo.poleto@ufv.br                           #
-    #                         bigrisci@inf.ufrgs.br                           #
-    #                                                                         #
-    # LGPL-3.0-or-later                               ® BR512019001928-8 2019 #
-    ###########################################################################\n\n""")    
+    print(confid_help.header)    
 
     try:
         print('You are running Python {}'.format(sys.version))
@@ -56,7 +40,7 @@ if __name__ == '__main__':
     fun2          = ['aver']
 
     if len(sys.argv) == 1:
-        print("Welcome to ConfID! Everything looks good so far.\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.")
+        print(confid_help.welcome)
         sys.exit(0)
     
     elif len(sys.argv) == 3:
@@ -143,6 +127,10 @@ if __name__ == '__main__':
     
     elif len(sys.argv) == 2:
         input_files = sys.argv[1]
+
+        if input_files in ['-h', '-H', '-help', '--h', '--H', '--help']:
+            print(confid_help.help_text)
+            sys.exit(0)
 
         try:
             with open(input_files, 'r') as ti:

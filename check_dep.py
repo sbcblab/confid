@@ -79,8 +79,7 @@ def check(print_ok=False):
         if print_ok:
             print('OK: pydot')
     except:
-        print('WARNING: could not import pydot')
-        print('WARNING: pydot is needed if PLOT_GRAPH is True.')        
+        pass       
     try:
         import matplotlib.pyplot as plt
         if print_ok:
