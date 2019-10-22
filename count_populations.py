@@ -241,16 +241,16 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                         time  = float(line_split[0])
                         locked2 = True
                         if locked1:
-                            raise Exception('ERROR: extra value in the dihedral file {}!\n{}'.format(DATA[k][0].points_file, line_split))
+                            raise Exception('ERROR: extra value in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(DATA[k][0].points_file, line_split))
                     elif len(line_split) == 1:
                         angle = float(line_split[0])
                         time  = t0 + td
                         t0    = time
                         locked1 = True
                         if locked2:
-                            raise Exception('ERROR: missing value in the dihedral file {}!\n{}'.format(DATA[k][0].points_file, line_split))
+                            raise Exception('ERROR: missing value in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(DATA[k][0].points_file, line_split))
                     else:
-                        raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}!\n{}'.format(len(line_split), DATA[k][0].points_file, line_split))
+                        raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(len(line_split), DATA[k][0].points_file, line_split))
                     t.append(time)
                     found = False
                     for r in DATA[k]:

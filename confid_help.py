@@ -60,13 +60,13 @@ help_text = """
         # Data prefix:  /usr/local/gromacs_514
         # Command line:
         #   gmx_514 angle -f ANA.SIM-nojump.xtc -type dihedral 
-        #                 -n dihedrals.ndx -ov DIH2.aver.xvg 
-        #                 -od DIH2.dist.xvg
+        #                 -n dihedrals.ndx -ov DIH.aver.xvg 
+        #                 -od DIH.dist.xvg
         # gmx angle is part of G R O M A C S:
         #
         # Green Red Orange Magenta Azure Cyan Skyblue
         #
-        @    title "Average Angle: DIH2"
+        @    title "Average Angle: DIH"
         @    xaxis  label "Time (ps)"
         @    yaxis  label "Angle (degrees)"
         @TYPE xy
@@ -79,14 +79,40 @@ help_text = """
     This file for instance was created using the GROMACS tool, with the
     command:
     $ gmx_514 angle -f ANA.SIM-nojump.xtc -type dihedral -n dihedrals.ndx 
-                    -ov DIH2.aver.xvg -od DIH2.dist.xvg
+                    -ov DIH2.aver.xvg -od DIH.dist.xvg
 
     The lines with a # or a @ are ignored by ConfID.
-    This file has the average values of the dihedral angle "DIH2" for each
+    
+    This file has the average values of the dihedral angle "DIH" for each
     time step of the simulation. The time steps are the first column, and
     were measured in ps. The average values are in the second column, and
     were measured in degrees. Note that the columns are divided by white
     spaces, and that each line only contains one time step.
+
+    Other simulation tools offer different layouts of outputs. For 
+    instance, below is another example:  
+
+        # Created by:
+        # TCL/VMD script
+        # 
+        # DIH VALUE
+            7.620
+          -42.346
+            5.688
+          -15.020
+          -14.126
+           -3.476
+           -5.852
+           -3.976
+          -22.790
+          -10.469
+           -1.266
+
+    Note that in this case the data only has one column: the average value
+    of the torsion angle "DIH" for each time step. ConfID is able to read
+    files in this format as well, but in this case all results will be 
+    showed in terms of the number of time steps instead of the simulation
+    time.
 
     ##
 
