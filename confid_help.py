@@ -144,7 +144,8 @@ help_text = """
 
     RESULTS_FOLDER          (string)                   
     DIH_POP_FOLDER          (string)          
-    NETWORK_FOLDER          (string)               
+    NETWORK_FOLDER          (string)     
+    TIME_STATS_FOLDER       (string)       
     SHOW_Z             	    (string)          [False / True]
     NETWORK_CUTOFF          (float)           [>= 0.0]      
     PLOT_NETWORK            (string)          [False / True]     
@@ -165,6 +166,8 @@ help_text = """
                             files should be saved.
     NETWORK_FOLDER:      	- specifies the directory in which output 
                             network files should be saved.
+    TIME_STATS_FOLDER       - specifies the directory in which output 
+                            transition files should be saved.
     SHOW_Z:             	- flag that determines if spurious regions 
                             (Z) should be represented in the results. They 
                             will be used in the internal calculations 
