@@ -12,7 +12,6 @@ import graphviz
 import pydot
 import matplotlib
 import itertools
-import cairo
 
 import check_dep
 import count_populations
