@@ -12,53 +12,100 @@
     #            In case of bugs or suggestions, please contact us:           #
     #                         marcelo.poleto@ufv.br                           #
     #                         bigrisci@inf.ufrgs.br                           #
+    #                                                                         #
+    # LGPL-3.0-or-later                               ® BR512019001928-8 2019 #
     ###########################################################################
 
+### Installation
 
-### INSTALLATION GUIDE ###
+## Install ConfID on Ubuntu using snapcraft (recommended)
 
-- ConfID requires Python distributions to be used. It works with both Python 2.7 and Python 3.x.
+# 1. Enable snapd
 
-- Download ConfID.zip from the github page (https://github.com/sbcblab/confid) and unpack all files to your directory of choice.
+If you are using Ubuntu 16.04 LTS (Xenial Xerus) or later, including Ubuntu 18.04 LTS (Bionic Beaver), Ubuntu 18.10 (Cosmic Cuttlefish) and Ubuntu 19.04 (Disco Dingo), Snap should be already installed.
 
-- Open a terminal in the working directory and type:
+For versions of Ubuntu between 14.04 LTS (Trusty Tahr) and 15.10 (Wily Werewolf), as well as Ubuntu flavours that do not include snap by default, it can be installed from the Ubuntu Software Centre by searching for snapd, or from the command line:
 
-	$ python check_dep.py
+$ sudo apt update
+$ sudo apt install snapd
 
-- This will check for all python libraries required to run ConfID. Usually, ConfID requires the following external libraries:
+Either log out and back in again, or restart your system, to ensure snap’s paths are updated correctly.
 
-	-> graphviz (https://pypi.org/project/graphviz/)
-	-> matplotlib (https://matplotlib.org/)
-	-> numpy (https://numpy.org/)
+# 2. Install ConfID
 
-- If any of those are missing, you should install it before continuing. Please note that graphviz and matplotlib are only required if you intend to use the ConfID built-in plot capabilities.
+To install ConfID, simply use the following commands on your terminal:
 
-- NOTE ABOUT GRAPHVIZ:
-Before installing Graphviz for Python, make sure that the original software is installed (http://www.graphviz.org/download/). Before installing it, the following dependencies should be installed as well:
+$ sudo snap install confid --edge
+$ snap connect confid:removable-media
+
+Then you can run ConfID by typing on your terminal:
+
+$ confid input.inp config
+
+## Install ConfID on other Linux distributions using snapcraft
+
+To install ConfID in other Linux distributions (Fedora, Linux Mint, Kubuntu, Debian, etc.) please refer to the instructions at the bottom of the page: https://snapcraft.io/confid.
+
+## Install ConfID from the source code
+
+This is the best way to use ConfID as a developer if you wish to modify the source code yourself, or if you want to use ConfID on other operating systems.
+
+# 1. Check for dependencies
+
+To run ConfID you will need either Python 2.7 or Python 3.x installed in your machine.
+
+ConfID requires the following external libraries:
+
+graphviz (https://pypi.org/project/graphviz/)
+matplotlib (https://matplotlib.org/)
+numpy (https://numpy.org/)
+
+If any of those are missing, you should install them before continuing. It is important to notice thta before installing Graphviz for Python, make sure that the original software is installed (http://www.graphviz.org/download/). Before installing it, the following dependencies should be installed as well:
+
 $ sudo apt install -y libgd-dev
 $ sudo apt install -y fontconfig
 $ sudo apt install -y libcairo2-dev
 $ sudo apt install -y libpango1.0-dev
 $ sudo apt install -y libgts-dev
 
-### ALIASING CONFID ###
+# 2. Download ConfID
 
-- In order to run ConfID in any given directory without carrying a lot of files with you, we strongly advise you to alias ConfID.
+Download all files from https://github.com/sbcblab/confid and save them to your directory of choice. If you have git installed you can do this by typing the following in your terminal:
 
-- For this, copy the "ConfID" folder that was extracted before;
+$ git clone https://github.com/sbcblab/confid.git
 
-- Move it to an installation folder of your choice;
+Now you can run ConfID by typing the following command in your terminal:
 
-- Then, add the following line to the end of your ~/.bashrc file:
+$ python3 confID.py input.inp config
 
-	alias confID='python /installation_folder_you_chose/ConfID/confID.py'
+# 3. Aliasing ConfID (optional)
 
-	Example: alias confID='python /home/youruser/Tools/ConfID/confID.py
+To run ConfID in any given directory without carrying a lot of files with you, we strongly advise you to alias ConfID. For this:
 
-- Then run on terminal:
+Copy the "confid" folder that was extracted before;
 
-	$ source ~/.bashrc
+Move it to an installation folder of your choice;
 
-- After this, you should be able to run ConfID in your terminal at any given directory simple by typing:
+Then, add the following line to the end of your ~/.bashrc file:
 
-	$ confID input.inp config
+alias confid='python3 /installation\_folder\_you\_chose/ConfID/confID.py'
+
+(example: alias confid='python3 /home/user/Tools/ConfID/confID.py)
+
+$ source ~/.bashrc
+
+After this, you should be able to run ConfID in your terminal at any given directory by simple typing:
+
+$ confid input.inp config
+
+### Running ConfID
+
+To run ConfID open your terminal and type
+
+$ confid input.inp config
+
+In which "input.inp" is a file containing in each line the paths to each dihedral file to serve as input, and "config" is an optional file containing the configuration of parameters for ConfID.
+
+To read the help section of ConfID you can also run 
+
+$ confid -h
