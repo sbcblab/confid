@@ -38,7 +38,7 @@ parts:
       - pprint
       - pydot
       - pyparsing
-      - pycairo
+      - cairo
       - graphviz      
 
 apps:
