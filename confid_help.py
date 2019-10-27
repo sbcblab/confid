@@ -20,7 +20,7 @@ header    = """
     #                         marcelo.poleto@ufv.br                           #
     #                         bigrisci@inf.ufrgs.br                           #
     #                                                                         #
-    # LGPL-3.0-or-later                               ® BR512019001928-8 2019 #
+    # LGPL-3.0                                        ® BR512019001928-8 2019 #
     ###########################################################################\n\n"""
 
 welcome   = "Welcome to ConfID! Everything looks good so far.\nTo run ConfID, please provide the path to the input_file.inp and optionally the path to the config file.\nRun \"confid -h\" if you need help.\nHave a nice \"ConfIDent\" analysis! =)"
