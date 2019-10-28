@@ -282,7 +282,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
     #for z in zip(ANGLES, TIMES):
     #    print(len(z[0]), len(z[1]))
 
-    count = zip(*ANGLES)
+    count = list(zip(*ANGLES))
     counter = Counter(count)
     regions_times = {}
 

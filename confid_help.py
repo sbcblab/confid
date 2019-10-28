@@ -121,10 +121,10 @@ help_text = """
     on the left column and the desired values in the right column, separeted 
     only by white spaces: 
 
-        RESULTS_FOLDER       Populations/
-        DIH_POP_FOLDER       Dihedral_Regions/
-        NETWORK_FOLDER       Networks/
-        TIME_STATS_FOLDER    Time_Dependent_Stats/
+        RESULTS_FOLDER       Output/Populations/
+        DIH_POP_FOLDER       Output/Dihedral_Regions/
+        NETWORK_FOLDER       Output/Networks/
+        TIME_STATS_FOLDER    Output/Time_Dependent_Stats/
         SHOW_Z               False
         NETWORK_CUTOFF       0.01
         PLOT_NETWORK         False
