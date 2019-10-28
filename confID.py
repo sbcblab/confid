@@ -66,16 +66,28 @@ if __name__ == '__main__':
                 l = line.rstrip()
                 l = l.split()
                 if l[0].upper() == 'RESULTS_FOLDER':
-                    output_folder = l[1]
+                    if l[1][-1] == '/':
+                        output_folder = l[1]
+                    else:
+                        output_folder = l[1]+'/'
                     print('{} = {}'.format(l[0], output_folder))
                 elif l[0].upper() == 'DIH_POP_FOLDER':
-                    xvgs_folder = l[1]
+                    if l[1][-1] == '/':
+                        xvgs_folder = l[1]
+                    else:
+                        xvgs_folder = l[1]+'/'
                     print('{} = {}'.format(l[0], xvgs_folder))
                 elif l[0].upper() == 'TIME_STATS_FOLDER':
-                    time_folder = l[1]
+                    if l[1][-1] == '/':
+                        time_folder = l[1]
+                    else:
+                        time_folder = l[1]+'/'
                     print('{} = {}'.format(l[0], time_folder))
                 elif l[0].upper() == 'NETWORK_FOLDER':
-                    graphs_folder = l[1]
+                    if l[1][-1] == '/':
+                        graphs_folder = l[1]
+                    else:
+                        graphs_folder = l[1]+'/'
                     print('{} = {}'.format(l[0], graphs_folder))
                 elif l[0].upper() == 'SHOW_Z':
                     show_z = l[1].lower() == 'true'
