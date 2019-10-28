@@ -25,10 +25,12 @@ if __name__ == '__main__':
     start = timeit.default_timer()
     check_dep.check()
 
-    output_folder = 'Populations/'
-    xvgs_folder   = 'Dihedral_Regions/'
-    graphs_folder = 'Networks/'
-    time_folder   = 'Time_Dependent_Stats/'
+    DIST_DIR = "Dihedrals/"
+
+    output_folder = 'Output/Populations/'
+    xvgs_folder   = 'Output/Dihedral_Regions/'
+    graphs_folder = 'Output/Networks/'
+    time_folder   = 'Output/Time_Dependent_Stats/'
     show_z        = False
     cutoff        = 0.01
     plot_graph    = False
@@ -176,7 +178,7 @@ if __name__ == '__main__':
         print('\nWARNING: plotting the graph figures may become too slow if the Z populations are to be shown, please consider setting either SHOW_Z or PLOT_NETWORK to False, or to use a large NETWORK_CUTOFF.\n')
 
 
-    new_inputs = aver2dist.convert(input_files)
+    new_inputs = aver2dist.convert(input_files, dihedral_folder=DIST_DIR)
 
     POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv)
 
@@ -223,6 +225,14 @@ if __name__ == '__main__':
         if os.path.exists(new_inputs):
             os.remove(new_inputs)
     except:
+        print('\nWARNING: Could not remove file {}.\n'.format(new_inputs))
+        pass
+
+    try:
+        if os.path.exists(DIST_DIR):
+            os.rename(DIST_DIR, xvgs_folder+"Dihedrals_Dist/")
+    except:
+        print('\nWARNING: Could not move folder {} to {}.\n'.format(DIST_DIR, xvgs_folder+"Dihedrals_Dist/"))
         pass
 
     print ('==\nFinished.\n')
