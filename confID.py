@@ -170,7 +170,6 @@ if __name__ == '__main__':
 
     if show_kinetic:
         print("\n#####################################\n>>>>>> CONFORMATIONAL TIME-DEPENDENT STATISTICS:")
-        #print('>>> Computing populations kinetic properties:')
 
         if (not show_z):
             print('\nWARNING: the frequency of the conformational populations in the stay stats may vary slightly from the previous results if Z populations are disregarded.\n')
@@ -196,6 +195,8 @@ if __name__ == '__main__':
                     files[0] = files[0].rstrip().replace(' ', '')
                     path = time_folder + files[0].replace('dist.xvg', 'transitions.txt')
                     files_paths.append(path)
+
+        print("\n#####################################\n>>>>>> DIHEDRAL TIME-DEPENDENT STATISTICS:")
 
         for fp in files_paths:
             for f1 in fun1:
