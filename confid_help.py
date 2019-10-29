@@ -174,7 +174,10 @@ help_text = """
                             files with only one column (average angle).
                             Otherwise it is optional but must be equal to the
                             actual total simulation time. Must be a value 
-                            larger than zero.
+                            larger than zero. It is important to notice that 
+                            the timescale chosen here is the same for the 
+                            time-dependent properties. We suggest the use of 
+                            picosecond timescale.
     SHOW_Z:             	- flag that determines if spurious regions 
                             (Z) should be represented in the results. They 
                             will be used in the internal calculations 
