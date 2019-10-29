@@ -110,9 +110,8 @@ help_text = """
 
     Note that in this case the data only has one column: the average value
     of the torsion angle "DIH" for each time step. ConfID is able to read
-    files in this format as well, but in this case all results will be 
-    showed in terms of the number of time steps instead of the simulation
-    time.
+    files in this format as well, but in this case the total simulation time
+    needs to be declared in the config file.
 
     ##
 
@@ -125,6 +124,7 @@ help_text = """
         DIH_POP_FOLDER       Output/Dihedral_Regions/
         NETWORK_FOLDER       Output/Networks/
         TIME_STATS_FOLDER    Output/Time_Dependent_Stats/
+        SIM_TIME             None
         SHOW_Z               False
         NETWORK_CUTOFF       0.01
         PLOT_NETWORK         False
@@ -145,7 +145,8 @@ help_text = """
     RESULTS_FOLDER          (string)                   
     DIH_POP_FOLDER          (string)          
     NETWORK_FOLDER          (string)     
-    TIME_STATS_FOLDER       (string)       
+    TIME_STATS_FOLDER       (string)  
+    SIM_TIME                (None or float)   [None / > 0.0]  
     SHOW_Z             	    (string)          [False / True]
     NETWORK_CUTOFF          (float)           [>= 0.0]      
     PLOT_NETWORK            (string)          [False / True]     
@@ -168,6 +169,12 @@ help_text = """
                             network files should be saved.
     TIME_STATS_FOLDER       - specifies the directory in which output 
                             transition files should be saved.
+    SIM_TIME                - specifies the total simulation time. SIM_TIME 
+                            is mandatory if you are working with dihedral
+                            files with only one column (average angle).
+                            Otherwise it is optional but must be equal to the
+                            actual total simulation time. Must be a value 
+                            larger than zero.
     SHOW_Z:             	- flag that determines if spurious regions 
                             (Z) should be represented in the results. They 
                             will be used in the internal calculations 

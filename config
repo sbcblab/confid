@@ -2,6 +2,7 @@ RESULTS_FOLDER 		 Output/Populations/
 DIH_POP_FOLDER 		 Output/Dihedral_Regions/
 NETWORK_FOLDER 		 Output/Networks/
 TIME_STATS_FOLDER	 Output/Time_Dependent_Stats/
+SIM_TIME             None
 SHOW_Z 			     False
 NETWORK_CUTOFF 		 0.01
 PLOT_NETWORK 		 True

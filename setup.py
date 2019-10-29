@@ -1,6 +1,7 @@
 import setuptools
 import os
 import sys
+import shutil
 import pprint
 import re
 import numpy

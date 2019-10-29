@@ -7,6 +7,7 @@
 import timeit
 import sys
 import os
+import shutil
 
 import check_dep
 import count_populations
@@ -31,6 +32,7 @@ if __name__ == '__main__':
     xvgs_folder   = 'Output/Dihedral_Regions/'
     graphs_folder = 'Output/Networks/'
     time_folder   = 'Output/Time_Dependent_Stats/'
+    sim_time      = None
     show_z        = False
     cutoff        = 0.01
     plot_graph    = False
@@ -91,6 +93,14 @@ if __name__ == '__main__':
                     else:
                         graphs_folder = l[1]+'/'
                     print('{} = {}'.format(l[0], graphs_folder))
+                elif l[0].upper() == 'SIM_TIME':
+                    if l[1].lower() == "none":
+                        sim_time = None
+                    elif float(l[1]) > 0.0:
+                        sim_time = float(l[1])
+                    else:    
+                        raise Exception("\n\nERROR: SIM_TIME ({}) must be 'None' or a value larger than 0.0!\n".format(l[1]))
+                    print('{} = {}'.format(l[0], sim_time))
                 elif l[0].upper() == 'SHOW_Z':
                     show_z = l[1].lower() == 'true'
                     print('{} = {}'.format(l[0], show_z))
@@ -158,6 +168,7 @@ if __name__ == '__main__':
         print('DIH_POP_FOLDER       = {}'.format(xvgs_folder))
         print('TIME_STATS_FOLDER    = {}'.format(time_folder))
         print('NETWORK_FOLDER       = {}'.format(graphs_folder))
+        print('SIM_TIME             = {}'.format(sim_time))
         print('SHOW_Z               = {}'.format(show_z))
         print('NETWORK_CUTOFF       = {}'.format(cutoff))
         print('PLOT_NETWORK         = {}'.format(plot_graph))
@@ -180,7 +191,7 @@ if __name__ == '__main__':
 
     new_inputs = aver2dist.convert(input_files, dihedral_folder=DIST_DIR)
 
-    POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv)
+    POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv, sim_time)
 
     if show_kinetic:
         print("\n#####################################\n>>>>>> CONFORMATIONAL TIME-DEPENDENT STATISTICS:")
@@ -230,6 +241,8 @@ if __name__ == '__main__':
 
     try:
         if os.path.exists(DIST_DIR):
+            if os.path.exists(xvgs_folder+"Dihedrals_Dist/"):
+                shutil.rmtree(xvgs_folder+"Dihedrals_Dist/")
             os.rename(DIST_DIR, xvgs_folder+"Dihedrals_Dist/")
     except:
         print('\nWARNING: Could not move folder {} to {}.\n'.format(DIST_DIR, xvgs_folder+"Dihedrals_Dist/"))

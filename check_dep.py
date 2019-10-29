@@ -21,6 +21,12 @@ def check(print_ok=False):
     except:
         print('ERROR: could not import sys')
     try:
+        import shutil
+        if print_ok:
+            print('OK: shutil')
+    except:
+        print('ERROR: could not import shutil')        
+    try:
         import pprint
         if print_ok:
             print('OK: pprint')

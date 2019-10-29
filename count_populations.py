@@ -172,7 +172,7 @@ def show_graph(nodes, edges, first_node, last_node, cutoff, filename, plot_graph
 ################################################################
 ################################################################
 
-def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv):
+def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv, sim_time):
 
     alias = output_folder + os.path.basename(input_files).replace('.inp', '')
 
@@ -223,12 +223,38 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
 
     keys = reading_order
     for k in keys:
+        td = 0.0
+        if sim_time != None:
+            with open(DATA[k][0].points_file, 'r') as pts:
+                final_time = 0.0
+                time_steps = 0
+                last_line = None
+                for line in pts:
+                    if '#' in line or '@' in line:
+                        pass
+                    elif '' == line:
+                        pass
+                    else:
+                        last_line = line
+                        time_steps = time_steps+1
+                
+                line_split = last_line.replace(',', ' ').split()
+                if len(line_split) == 2:
+                    final_time = float(line_split[0])
+                    if (final_time != sim_time):
+                        raise Exception('\nERROR: total simulation time ({}) in the dihedral file {} is different from simulation time ({}) in the config file!\n'.format(final_time, DATA[k][0].points_file, sim_time))
+                    else:
+                        print('\nWARNING: declared simulation time ({}) in the config file and in the dihedral file ({}) at the same time.\n'.format(sim_time, DATA[k][0].points_file))
+                elif len(line_split) == 1:
+                    td = round(sim_time/time_steps, 5)
+                else:
+                    raise Exception('\nERROR: wrong number of columns ({}) in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(len(line_split), DATA[k][0].points_file, line_split))
+            
         with open(DATA[k][0].points_file, 'r') as points:
             print(k, DATA[k][0].points_file)
             a = []
             t = []
             t0 = 0.0
-            td = 1.0
             locked2 = False
             locked1 = False
             for line in points:
@@ -241,16 +267,18 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                         time  = float(line_split[0])
                         locked2 = True
                         if locked1:
-                            raise Exception('ERROR: extra value in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(DATA[k][0].points_file, line_split))
+                            raise Exception('\nERROR: extra value in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(DATA[k][0].points_file, line_split))
                     elif len(line_split) == 1:
                         angle = float(line_split[0])
                         time  = t0 + td
                         t0    = time
                         locked1 = True
                         if locked2:
-                            raise Exception('ERROR: missing value in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(DATA[k][0].points_file, line_split))
+                            raise Exception('\nERROR: missing value in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(DATA[k][0].points_file, line_split))
+                        if sim_time == None:
+                            raise Exception('\nERROR: total simulation time was not declared in the config file, but the dihedral file has no time column!\n')
                     else:
-                        raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(len(line_split), DATA[k][0].points_file, line_split))
+                        raise Exception('\nERROR: wrong number of columns ({}) in the dihedral file {}!\n{}\nConfID only reads files with one (average angle) or two columns (time and average angle).'.format(len(line_split), DATA[k][0].points_file, line_split))
                     t.append(time)
                     found = False
                     for r in DATA[k]:
