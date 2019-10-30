@@ -56,7 +56,7 @@ To install ConfID in other Linux distributions (Fedora, Linux Mint, Kubuntu, Deb
 
 Snapcraft 3 can be installed via Homebrew on Apple macOS Yosemite (or later), and then used to build ConfID within the macOS environment.
 
-# Prerequisites
+### Prerequisites
 
 Install the the Homebrew package manager: https://brew.sh/#install
 
@@ -66,7 +66,7 @@ Install Snapcraft and Multipass by opening 'Terminal' and entering the following
 $ brew install snapcraft
 $ brew cask install multipass
 ```
-#Configure the virtual machine
+### Configure the virtual machine
 
 Create a Linux virtual machine:
 ```
@@ -77,7 +77,7 @@ Connect to the virtual machine:
 $ multipass shell testvm
 ```
 
-# Install the snap
+### Install the snap
 
 Install ConfID inside the virtual machine:
 

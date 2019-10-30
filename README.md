@@ -2,8 +2,8 @@
 
 Thanks for downloading ConfID!
 
-- For installation instructions, please read "INSTALL.txt"
-- For usage and configuration instructions, please read "config_help.txt"
+- For installation instructions, please read [INSTALL.md](INSTALL.md).
+- For usage and configuration instructions, please read ...
 - For tutorials and more in depth explanations, please access http://sbcb.inf.ufrgs.br/confid
 
 Have a nice "ConfIDent" analysis! =)
@@ -23,7 +23,6 @@ http://sbcb.inf.ufrgs.br/confid
 ## Citing ConfID
 
 If you use ConfID in a scientific publication, we would appreciate citations to the following paper:
-
 
 Bibtex entry:
 ```
