@@ -35,7 +35,7 @@ Either log out and back in again, or restart your system, to ensure snap’s pat
 
 To install ConfID, simply use the following commands on your terminal:
 
-$ sudo snap install confid --edge
+$ sudo snap install confid
 $ snap connect confid:removable-media
 
 Then you can run ConfID by typing on your terminal:
