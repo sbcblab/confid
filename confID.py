@@ -69,85 +69,90 @@ if __name__ == '__main__':
             for line in cf:
                 l = line.rstrip()
                 l = l.split()
-                if l[0].upper() == 'RESULTS_FOLDER':
-                    if l[1][-1] == '/':
-                        output_folder = l[1]
-                    else:
-                        output_folder = l[1]+'/'
-                    print('{} = {}'.format(l[0], output_folder))
-                elif l[0].upper() == 'DIH_POP_FOLDER':
-                    if l[1][-1] == '/':
-                        xvgs_folder = l[1]
-                    else:
-                        xvgs_folder = l[1]+'/'
-                    print('{} = {}'.format(l[0], xvgs_folder))
-                elif l[0].upper() == 'TIME_STATS_FOLDER':
-                    if l[1][-1] == '/':
-                        time_folder = l[1]
-                    else:
-                        time_folder = l[1]+'/'
-                    print('{} = {}'.format(l[0], time_folder))
-                elif l[0].upper() == 'NETWORK_FOLDER':
-                    if l[1][-1] == '/':
-                        graphs_folder = l[1]
-                    else:
-                        graphs_folder = l[1]+'/'
-                    print('{} = {}'.format(l[0], graphs_folder))
-                elif l[0].upper() == 'SIM_TIME':
-                    if l[1].lower() == "none":
-                        sim_time = None
-                    elif float(l[1]) > 0.0:
-                        sim_time = float(l[1])
-                    else:    
-                        raise Exception("\n\nERROR: SIM_TIME ({}) must be 'None' or a value larger than 0.0!\n".format(l[1]))
-                    print('{} = {}'.format(l[0], sim_time))
-                elif l[0].upper() == 'SHOW_Z':
-                    show_z = l[1].lower() == 'true'
-                    print('{} = {}'.format(l[0], show_z))
-                elif l[0].upper() == 'NETWORK_CUTOFF':
-                    cutoff = float(l[1])
-                    print('{} = {}'.format(l[0], cutoff))
-                elif l[0].upper() == 'PLOT_NETWORK':
-                    plot_graph = l[1].lower() == 'true'
-                    print('{} = {}'.format(l[0], plot_graph))
-                    if plot_graph:
-                        try:
-                            import graphviz
-                        except:
-                            raise Exception("\n\nERROR: graphviz package needs to be installed if PLOT_NETWORK is True, but it couldn't be imported.")
-                elif l[0].upper() == 'CONVERGENCE_CUTOFF':
-                    convergence_cutoff = float(l[1])
-                    print('{} = {}'.format(l[0], convergence_cutoff))
-                elif l[0].upper() == 'FACTOR_PEAK':
-                    fp = float(l[1])
-                    if fp < 1.0:
-                        raise Exception('\n\nERROR: FACTOR_PEAK ({}) must be larger or equal to 1.0.\n'.format(fp))
-                    print('{} = {}'.format(l[0], fp))
-                elif l[0].upper() == 'FACTOR_VALLEY':
-                    fv = float(l[1])
-                    if fv < 1.0:
-                        raise Exception('\n\nERROR: FACTOR_VALLEY ({}) must be larger or equal to 1.0.\n'.format(fv))
-                    print('{} = {}'.format(l[0], fv))
-                elif l[0].upper() == 'TIME_DEPENDENT_STATS':
-                    show_kinetic = l[1].lower() == 'true'
-                    print('{} = {}'.format(l[0], show_kinetic))
-                    if show_kinetic:
-                        try:
-                            import matplotlib.pyplot
-                        except:
-                            raise Exception("\n\nERROR: matplotlib.pyplot package needs to be installed if TIME_DEPENDENT_STATS is True, but it couldn't be imported.")
-                elif l[0].upper() == 'DATA_1':
-                    fun1 = []
-                    for i in range(1, len(l)):
-                        fun1.append(l[i].lower())
-                    print('{} = {}'.format(l[0], fun1))
-                elif l[0].upper() == 'DATA_2':
-                    fun2 = []
-                    for i in range(1, len(l)):
-                        fun2.append(l[i].lower())
-                    print('{} = {}'.format(l[0], fun2))
+                if len(l) == 0:
+                    pass
+                elif len(l) != 2:
+                    raise Exception("\n\nERROR: Wrong number of columns ({}) in file {}:\n{}\nConfig file must have only two columns separated by space.\n".format(len(l), config_file, line))
                 else:
-                    print('\nWARNING: Unidentified parameter ignored: {} {}\n'.format(l[0], l[1]))
+                    if l[0].upper() == 'RESULTS_FOLDER':
+                        if l[1][-1] == '/':
+                            output_folder = l[1]
+                        else:
+                            output_folder = l[1]+'/'
+                        print('{} = {}'.format(l[0], output_folder))
+                    elif l[0].upper() == 'DIH_POP_FOLDER':
+                        if l[1][-1] == '/':
+                            xvgs_folder = l[1]
+                        else:
+                            xvgs_folder = l[1]+'/'
+                        print('{} = {}'.format(l[0], xvgs_folder))
+                    elif l[0].upper() == 'TIME_STATS_FOLDER':
+                        if l[1][-1] == '/':
+                            time_folder = l[1]
+                        else:
+                            time_folder = l[1]+'/'
+                        print('{} = {}'.format(l[0], time_folder))
+                    elif l[0].upper() == 'NETWORK_FOLDER':
+                        if l[1][-1] == '/':
+                            graphs_folder = l[1]
+                        else:
+                            graphs_folder = l[1]+'/'
+                        print('{} = {}'.format(l[0], graphs_folder))
+                    elif l[0].upper() == 'SIM_TIME':
+                        if l[1].lower() == "none":
+                            sim_time = None
+                        elif float(l[1]) > 0.0:
+                            sim_time = float(l[1])
+                        else:    
+                            raise Exception("\n\nERROR: SIM_TIME ({}) must be 'None' or a value larger than 0.0!\n".format(l[1]))
+                        print('{} = {}'.format(l[0], sim_time))
+                    elif l[0].upper() == 'SHOW_Z':
+                        show_z = l[1].lower() == 'true'
+                        print('{} = {}'.format(l[0], show_z))
+                    elif l[0].upper() == 'NETWORK_CUTOFF':
+                        cutoff = float(l[1])
+                        print('{} = {}'.format(l[0], cutoff))
+                    elif l[0].upper() == 'PLOT_NETWORK':
+                        plot_graph = l[1].lower() == 'true'
+                        print('{} = {}'.format(l[0], plot_graph))
+                        if plot_graph:
+                            try:
+                                import graphviz
+                            except:
+                                raise Exception("\n\nERROR: graphviz package needs to be installed if PLOT_NETWORK is True, but it couldn't be imported.")
+                    elif l[0].upper() == 'CONVERGENCE_CUTOFF':
+                        convergence_cutoff = float(l[1])
+                        print('{} = {}'.format(l[0], convergence_cutoff))
+                    elif l[0].upper() == 'FACTOR_PEAK':
+                        fp = float(l[1])
+                        if fp < 1.0:
+                            raise Exception('\n\nERROR: FACTOR_PEAK ({}) must be larger or equal to 1.0.\n'.format(fp))
+                        print('{} = {}'.format(l[0], fp))
+                    elif l[0].upper() == 'FACTOR_VALLEY':
+                        fv = float(l[1])
+                        if fv < 1.0:
+                            raise Exception('\n\nERROR: FACTOR_VALLEY ({}) must be larger or equal to 1.0.\n'.format(fv))
+                        print('{} = {}'.format(l[0], fv))
+                    elif l[0].upper() == 'TIME_DEPENDENT_STATS':
+                        show_kinetic = l[1].lower() == 'true'
+                        print('{} = {}'.format(l[0], show_kinetic))
+                        if show_kinetic:
+                            try:
+                                import matplotlib.pyplot
+                            except:
+                                raise Exception("\n\nERROR: matplotlib.pyplot package needs to be installed if TIME_DEPENDENT_STATS is True, but it couldn't be imported.")
+                    elif l[0].upper() == 'DATA_1':
+                        fun1 = []
+                        for i in range(1, len(l)):
+                            fun1.append(l[i].lower())
+                        print('{} = {}'.format(l[0], fun1))
+                    elif l[0].upper() == 'DATA_2':
+                        fun2 = []
+                        for i in range(1, len(l)):
+                            fun2.append(l[i].lower())
+                        print('{} = {}'.format(l[0], fun2))
+                    else:
+                        print('\nWARNING: Unidentified parameter ignored: {} {}\n'.format(l[0], l[1]))
     
     elif len(sys.argv) == 2:
         input_files = sys.argv[1]

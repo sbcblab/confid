@@ -41,16 +41,16 @@ help_text = """
     input.inp is the input file and should follow this template:
 
         # Comment that is ignored
-        Path/to/file/file1.aver.xvg
-        Path/to/file/file2.aver.xvg
-        Path/to/file/fileN.aver.xvg
+        Path/to/file/file1.dat
+        Path/to/file/file2.dat
+        Path/to/file/fileN.dat
 
     ##
 
-    The *aver.xvg files listed in input.inp are .xvg files with the output
-    of your simulation. Each one of these files lists the average value of 
-    a single torsion angle for each time step of the simulation. They can
-    look something like this:
+    The file*.dat files listed in input.inp are files with the dihedral values 
+    of a torsion sampled in your simulation. Each one of these files lists the 
+    average value of a single torsion angle for each time step of the 
+    simulation. They can look something like this:
 
         # This file was created Fri Feb  1 14:25:33 2019
         # Created by:
@@ -59,9 +59,9 @@ help_text = """
         # Executable:   /usr/local/gromacs_514/bin//gmx_514
         # Data prefix:  /usr/local/gromacs_514
         # Command line:
-        #   gmx_514 angle -f ANA.SIM-nojump.xtc -type dihedral 
-        #                 -n dihedrals.ndx -ov DIH.aver.xvg 
-        #                 -od DIH.dist.xvg
+        #   gmx_514 angle -f trajectory.xtc -type dihedral 
+        #                 -n dihedrals.ndx -ov DIH.value.xvg 
+        #        
         # gmx angle is part of G R O M A C S:
         #
         # Green Red Orange Magenta Azure Cyan Skyblue
@@ -76,16 +76,16 @@ help_text = """
           30.00000   -88.705
           40.00000   -85.026
 
-    This file for instance was created using the GROMACS tool, with the
+    The format above was created using the GROMACS tool, with the
     command:
-    $ gmx_514 angle -f ANA.SIM-nojump.xtc -type dihedral -n dihedrals.ndx 
-                    -ov DIH2.aver.xvg -od DIH.dist.xvg
+    $ gmx_514 angle -f trajectory.xtc -type dihedral -n dihedrals.ndx 
+                    -ov DIH.value.xvg
 
     The lines with a # or a @ are ignored by ConfID.
     
-    This file has the average values of the dihedral angle "DIH" for each
+    This file has the dihedral values of the torsion "DIH" for each
     time step of the simulation. The time steps are the first column, and
-    were measured in ps. The average values are in the second column, and
+    were measured in ps. The dihedral values are in the second column, and
     were measured in degrees. Note that the columns are divided by white
     spaces, and that each line only contains one time step.
 
@@ -111,7 +111,7 @@ help_text = """
     Note that in this case the data only has one column: the average value
     of the torsion angle "DIH" for each time step. ConfID is able to read
     files in this format as well, but in this case the total simulation time
-    needs to be declared in the config file.
+    must be declared in the config file.
 
     ##
 
@@ -140,81 +140,82 @@ help_text = """
 
     ## 
 
-    The config file has many flags, below is the definition of each of them:
+    The config file has many flags, below you can find the definition of each 
+    of them:
 
     RESULTS_FOLDER          (string)                   
     DIH_POP_FOLDER          (string)          
     NETWORK_FOLDER          (string)     
     TIME_STATS_FOLDER       (string)  
     SIM_TIME                (None or float)   [None / > 0.0]  
-    SHOW_Z             	    (string)          [False / True]
+    SHOW_Z                  (string)          [False / True]
     NETWORK_CUTOFF          (float)           [>= 0.0]      
     PLOT_NETWORK            (string)          [False / True]     
-    CONVERGENCE_CUTOFF 	    (float)           [>= 0.0]                       
-    FACTOR_PEAK        	    (float)           [>= 1.0, < FACTOR_VALLEY]    
-    FACTOR_VALLEY      	    (float)           [>= 1.0, > FACTOR_PEAK]         
+    CONVERGENCE_CUTOFF      (float)           [>= 0.0]                       
+    FACTOR_PEAK             (float)           [>= 1.0, < FACTOR_VALLEY]    
+    FACTOR_VALLEY           (float)           [>= 1.0, > FACTOR_PEAK]         
     TIME_DEPENDENT_STATS    (string)          [False / True]              
-    DATA_1             	    (list of strings) [sum / max / min / aver / std / 
+    DATA_1                  (list of strings) [sum / max / min / aver / std / 
                                                median / count]
-    DATA_2             	    (list of strings) [sum / max / min / aver / std / 
+    DATA_2                  (list of strings) [sum / max / min / aver / std / 
                                                median / count]
 
     ###
 
-    RESULTS_FOLDER:      	- specifies the directory in which output files 
+    RESULTS_FOLDER:         - specifies the directory in which output files 
                             should be saved.
-    DIH_POP_FOLDER:        	- specifies the directory in which output .xvg 
-                            files should be saved.
-    NETWORK_FOLDER:      	- specifies the directory in which output 
+    DIH_POP_FOLDER:         - specifies the directory in which output .xvg 
+                            files for dihedral populations should be saved.
+    NETWORK_FOLDER:         - specifies the directory in which output 
                             network files should be saved.
     TIME_STATS_FOLDER       - specifies the directory in which output 
                             transition files should be saved.
     SIM_TIME                - specifies the total simulation time. SIM_TIME 
                             is mandatory if you are working with dihedral
-                            files with only one column (average angle).
+                            files with only one column (dihedral angle).
                             Otherwise it is optional but must be equal to the
                             actual total simulation time. Must be a value 
                             larger than zero. It is important to notice that 
                             the timescale chosen here is the same for the 
                             time-dependent properties. We suggest the use of 
                             picosecond timescale.
-    SHOW_Z:             	- flag that determines if spurious regions 
+    SHOW_Z:                 - flag that determines if spurious regions 
                             (Z) should be represented in the results. They 
                             will be used in the internal calculations 
                             nevertheless. If this is True please consider 
                             setting PLOT_NETWORK to False, as plotting the 
                             chart may become too slow. 
-    NETWORK_CUTOFF:       	- the smallest transition frequency required 
+    NETWORK_CUTOFF:         - the smallest transition frequency required 
                             for an edge to appear in the networks. If equal 
                             to 0.0, all edges are considered. If this 
                             cutoff is too small please consider setting 
                             PLOT_NETWORK to False, as plotting the chart 
                             may become too slow. 
-    PLOT_NETWORK:         	- if True, network figures for the transitions 
+    PLOT_NETWORK:           - if True, network figures for the transitions 
                             will be created using the graphviz library. 
                             Networks text files will be created if it is 
                             either True or False.
-    CONVERGENCE_CUTOFF: 	- the smallest population frequency at the end 
+    CONVERGENCE_CUTOFF:     - the smallest population frequency at the end 
                             of the simulation required for the convergence 
                             file for that population to be generated. If 
                             equal to 0.0, all populations will be 
                             represented, but for a large number of dihedral
                             angles this can take a while.
-    FACTOR_PEAK         	- factor that sets the constriction for peaks 
+    FACTOR_PEAK             - factor that sets the constriction for peaks 
                             selection. Larger values lessen the constriction.
                             Must be larger or equal to 1.0 and smaller than 
                             FACTOR_VALLEY.
-    FACTOR_VALLEY       	- factor that sets the constriction for valleys 
+    FACTOR_VALLEY           - factor that sets the constriction for valleys 
                             selection. Lower values lessen the constriction. 
                             Must be larger or equal to 1.0 and larger than 
                             FACTOR_PEAK.
-    TIME_DEPENDENT_STATS:	- flag that determines if the statistics of the 
+    TIME_DEPENDENT_STATS:   - flag that determines if the statistics of the 
                             time stayed at each population should be computed.
-    DATA_1:             	- list of functions that should be used as the x
+    DATA_1:                 - list of functions that should be used as the x
                             axis of the charts of the statistics of the time 
                             stayed at each population and how the report 
                             should be ordered.  
-    DATA_2:             	- list of functions that should be used as the y
+    DATA_2:                 - list of functions that should be used as the y
                             axis of the charts of the statistics of the time 
                             stayed at each population and how the report 
                             should be ordered.
