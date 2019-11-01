@@ -52,6 +52,24 @@ $ confid input.inp config
 
 To install ConfID in other Linux distributions (Fedora, Linux Mint, Kubuntu, Debian, etc.) please refer to the instructions at the bottom of the page: https://snapcraft.io/confid.
 
+## Install ConfID on macOS using the exec file (recommended)
+
+You can run ConfID on your macOS machine by using the provided exec file.
+
+### Download the exec
+
+Download the file [confid_0.1.0_macos](confid_0.1.0_macos) to your directory of choice.
+
+Rename it to '''confid''' for practicality.
+
+### Run ConfID
+
+To run, simply type on your terminal in the same directory of the downloaded exec:
+
+'''
+$ ./confid -h
+'''
+
 ## Install ConfID on macOS using Snapcraft
 
 Snapcraft 3 can be installed via Homebrew on Apple macOS Yosemite (or later), and then used to build ConfID within the macOS environment.
@@ -158,9 +176,24 @@ $ confid input.inp config
 # Running ConfID
 
 To run ConfID open your terminal and type
+
+### From Snapcraft
 ```
 $ confid input.inp config
 ```
+### From macOS exec
+```
+$ ./confid input.inp config
+```
+### From source (not aliased)
+```
+$ python3 confID.py input.inp config
+```
+### From source (aliased)
+```
+$ confid input.inp config
+```
+
 In which "input.inp" is a file containing in each line the paths to each dihedral file to serve as input, and "config" is an optional file containing the configuration of parameters for ConfID.
 
 To read the help section of ConfID you can also run 
