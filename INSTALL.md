@@ -50,19 +50,19 @@ $ confid input.inp config
 ```
 ## Install ConfID on other Linux distributions using snapcraft
 
-To install ConfID in other Linux distributions (Fedora, Linux Mint, Kubuntu, Debian, etc.) please refer to the instructions at the bottom of the page: https://snapcraft.io/confid.
+To install ConfID in other Linux distributions (Fedora, Linux Mint, Kubuntu, Debian, etc.) please refer to the instructions at the bottom of the page: https://snapcraft.io/confid
 
 ## Install ConfID on macOS using the exec file (recommended)
 
 You can run ConfID on your macOS machine by using the provided exec file.
 
-### Download the exec
+### 1. Download the exec
 
-Download the file [confid_0.1.0_macos](confid_0.1.0_macos) to your directory of choice.
+Download the file [confid_0.1.0_macos](confid_0.1.0_macos) to your directory of choice: https://github.com/sbcblab/confid/blob/master/confid_0.1.0_macos
 
 Rename it to '''confid''' for practicality.
 
-### Run ConfID
+### 2. Run ConfID
 
 To run, simply type on your terminal in the same directory of the downloaded exec:
 
@@ -74,7 +74,7 @@ $ ./confid -h
 
 Snapcraft 3 can be installed via Homebrew on Apple macOS Yosemite (or later), and then used to build ConfID within the macOS environment.
 
-### Prerequisites
+### 1. Prerequisites
 
 Install the the Homebrew package manager: https://brew.sh/#install
 
@@ -84,7 +84,7 @@ Install Snapcraft and Multipass by opening 'Terminal' and entering the following
 $ brew install snapcraft
 $ brew cask install multipass
 ```
-### Configure the virtual machine
+### 2. Configure the virtual machine
 
 Create a Linux virtual machine:
 ```
@@ -95,7 +95,7 @@ Connect to the virtual machine:
 $ multipass shell testvm
 ```
 
-### Install the snap
+### 3. Install the snap
 
 Install ConfID inside the virtual machine:
 
