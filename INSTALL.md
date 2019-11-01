@@ -60,15 +60,15 @@ You can run ConfID on your macOS machine by using the provided exec file.
 
 Download the file [confid_0.1.0_macos](confid_0.1.0_macos) to your directory of choice: https://github.com/sbcblab/confid/blob/master/confid_0.1.0_macos
 
-Rename it to '''confid''' for practicality.
+Rename it to ```confid``` for practicality.
 
 ### 2. Run ConfID
 
 To run, simply type on your terminal in the same directory of the downloaded exec:
 
-'''
+```
 $ ./confid -h
-'''
+```
 
 ## Install ConfID on macOS using Snapcraft
 
