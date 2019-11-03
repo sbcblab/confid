@@ -176,7 +176,7 @@ In ```Output/Time_Dependent_Stats/CONF.transitions-Time_Stats-sumXaver.txt```, *
 - count: amount of times of a transition event entering this population
 ```
 
-**NOTE**: The time-dependent properties calculated by ***ConfID*** are sensitive to the frequency of frames used to write dihedral fluctuations as a function of time (files ```DIH*.values.xvg```). Higher the frequency of saved frames, higher the time resolution of transition events, more reliable will be the properties calculated by ConfiD. Lower the frequency of saved frames, less reliable are the calculated properties.
+**NOTE**: The time-dependent properties calculated by ***ConfID*** are sensitive to the frequency of frames used to write dihedral fluctuations as a function of time (files ```DIH*.values.xvg```). Higher the frequency of saved frames, higher the time resolution of transition events, more reliable will be the properties calculated by ***ConfiD***. Lower the frequency of saved frames, less reliable are the calculated properties.
 
 As shown in the image below, P#1 has slightly higher average time than P#2 and a higher standard deviation (396 士 1562 ps against 321 士 910 ps).
 
