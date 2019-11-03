@@ -20,7 +20,7 @@ Now that we have the peaks and valleys, ***ConfID*** can identify dihedral popul
 
 ![alt text](https://github.com/sbcblab/confid/blob/master/images/confid2.png "ConfID")
 
-## How do I install ConfID?
+## How do I install ***ConfID***?
 
  ***ConfID*** is available as a source code, snapcraft and macOS exec. You can find the complete list of instructions to install and run ***ConfID*** by reading [INSTALL.md](INSTALL.md).
 
@@ -138,7 +138,9 @@ The functions available for time-dependent properties calculation are:
 Assuming that all Python prerequisites were [correctly installed](INSTALL.md) and you know what you are doing (have you tried our [Tutorials section?](TUTORIAL.md)), the most common errors and warnings are:
 
 - _"Segmentation Fault"_
+
 In general, that means ***ConfID*** is using too much memory, most probably due to the number of frames saved in your inputs. You might want to try to close some applications or to reduce the frequency of frames in your inputs.
+
 - _"ERROR: wrong number of parameters given to ConfID: To run ConfID, please provide the path to the input.inp and optionally the path to the config file."_
 This error means that the wrong number of inputs was given to ***ConfID***. ***ConfID*** accepts the following commands:
 ```
@@ -147,68 +149,107 @@ $ confid -h
 $ confid input.inp
 $ confid input.inp config
 ```
+
 - _"PermissionError: IMPORTANT! Are you trying to read or write files in a removable media (pendrives, external HDs, etc)? Then you must give ConfID access to removable media after installing it by running the following command in your terminal: snap connect confid:removable-media"_
+
 This error happens if you install ***ConfID*** using the snapcraft, try to read or write a file from a removable media, but did not give ***ConfID*** access to removable media. To solve it type on your terminal:
 ```
 $ snap connect confid:removable-media
 ```
+
 - _"ERROR: wrong number of columns in the dihedral file! ConfID only reads files with one (dihedral value) or two columns (time and dihedral value)."_
+
 This means that one or more of your files with dihedral values have more than two columns in at least one line. Please check your files and remember that ***ConfID*** accepts dihedral files with one (dihedral value) or two columns (time and dihedral value).
+
 - _"ERROR: extra value in the dihedral file! ConfID only reads files with one (dihedral value) or two columns (time and dihedral value)."_
+
 This means that you are using dihedral files with only one column (dihedral value) but at least one line has more than one value.
+
 - "ERROR: missing value in the dihedral file! ConfID only reads files with one (dihedral value) or two columns (time and dihedral value)."_
+
 This means that you are using dihedral files with two columns (time and dihedral value), but at least one line has less than two values.
+
 - _"ERROR: Wrong number of columns in file: Config file must have only two columns separated by space."_
+
 This means that your ```config``` file has a line with less than or more than two columns. The optional ```config``` file requires exactly two columns separated by spaces.
+
 - _"ERROR: graphviz package needs to be installed if PLOT\_NETWORK is True, but it couldn't be imported."_
+
 This will happen if you try to plot networks within ***ConfID*** but does not have the Graphviz package installed in your system. You can either [install Graphviz manually]( https://graphviz.readthedocs.io/en/stable/manual.html) or set PLOT\_NETWORK to False and use the .gml files generated in a network visualization software such as Cytoscape \cite{Shannon2003}.
+
 - _"ERROR: matplotlib.pyplot package needs to be installed if TIME\_DEPENDENT\_STATS is True, but it couldn't be imported."_
 This will happen if you don't have the matplotlib package installed in your system. You can solve this by installing [matplotlib](https://matplotlib.org/3.1.0/users/installing.html) or setting TIME\_DEPENDENT\_STATS to False.
+
 - _"ERROR: SIM\_TIME must be 'None' or a value larger than 0.0!"_
+
 To solve this problem, set the SIM\_TIME value in your ```config``` file to "None" or to be larger than 0.0.
+
 - _"ERROR: FACTOR\_PEAK must be larger or equal to 1.0."_
+
 To solve this problem, set the FACTOR\_PEAK value in your ```config``` file to be larger or equal to 1.0.
+
 - _"ERROR: FACTOR\_VALLEY must be larger or equal to 1.0."_ 
+
 To solve this problem, set the FACTOR\_VALLEY value in your ```config``` file to be larger or equal to 1.0.
+
 - _"ERROR: FACTOR\_VALLEY must be larger than FACTOR\_PEAK"_
+
 To solve this problem, set the FACTOR\_VALLEY value in your ```config``` file to be larger than FACTOR\_PEAK.
+
 - _"ERROR: No peaks were found! Try using a larger threshold value for FACTOR\_PEAK to solve the problem."_
+
 This error will happen if you use a FACTOR\_PEAK so small that no peaks could be found.
+
 - _"ERROR: No valleys were found! Try using a larger threshold value for FACTOR\_VALLEY to solve the problem."_
+
 This error will happen if you use a FACTOR\_VALLEY so large that no peaks could be found.
+
 - _"ERROR: total simulation time in the dihedral file is different from simulation time in the config file!"_
 There is a value other than "None" for SIM\_TIME in the ```config``` file, and the dihedral files have two columns, one of them being the time steps. The values in these files are different, so one of them must be wrong.
+
 - _"ERROR: total simulation time was not declared in the config file, but the dihedral file has no time column!"_
+
 The SIM\_TIME was equal to "None" or was not specified in the ```config``` file, but the dihedral files do not have a time column. Please set SIM\_TIME to the total simulation time.
+
 - _"ERROR: Unidentified function:"_
+
 This error will happen when an unidentified function is passed as an argument to DATA\_1 or DATA\_2 in the ```config``` file. The possible values are sum, max, min, aver, std, median, and count.
+
 - _"WARNING: Unidentified parameter ignored"_
+
 This means that some parameters in your ```config``` file could not be recognized and were ignored. Please review the spelling of the parameters and check if they match the documentation.
+
 - _"WARNING: declared simulation time in the config file and in the dihedral file at the same time."_
+
 This is a reminder that there is a value other than "None" for SIM\_TIME in the ```config``` file, and the dihedral files have two columns, one of them being the time steps. If the values in these files do not match up, an error will arise.
+
 - _"WARNING: plotting the graph figures may become too slow if the Z populations are to be shown, please consider setting either SHOW\_Z or PLOT\_NETWORK to False or to use a large NETWORK\_CUTOFF."_
+
 This warning appears if both SHOW\_Z and PLOT\_NETWORK are True.
+
 - _"WARNING: the frequency of the conformational populations in the stay stats may vary slightly from the previous results if Z populations are disregarded."_
+
 - _"WARNING: Did not plot network with more than 200 nodes."_
+
 This warning appears to avoid memory and processing time issues by plotting a huge network. It occurs when PLOT\_NETWORK is True, and the network has more than 200 nodes. You can use the .gml files generated in a network visualization software such as [Cytoscape](https://cytoscape.org/).
 
 ## I have found a bug. I demand to speak to the manager!
 
 We apologize for any bugs you may be witnessing. We kindly ask you to send your inputs and a brief description of what you are trying to achieve (organized screenshots may help) to marcelo.poleto@ufv.br or bigrisci@inf.ufrgs.br and our team will deal with it as soon as possible! 
 
-## Which works use ConfID?
+## Which works use ***ConfID***?
 
-There are some papers already using ConfID! Take a look:
+There are some papers already using ***ConfID***! Take a look:
 
 - Pablo R. Arantes, Marcelo D. Polêto, Elisa B. O. John, Conrado Pedebos, Bruno I. Grisci, Marcio Dorn, and Hugo Verli. _Development of GROMOS-Compatible Parameter Set for Simulations of Chalcones and Flavonoids_, The Journal of Physical Chemistry B **2019** 123 (5), 994-1008, DOI: [10.1021/acs.jpcb.8b10139](https://doi.org/10.1021/acs.jpcb.8b10139)
 
 - Roberta Tesch, Christian Becker, Matthias P. Müller, Michael E. Beck, Lena Quambusch, Matthäus Getlik, Jonas Lategahn, Niklas Uhlenbrock, Fanny N. Costa, Marcelo D. Polêto, Pedro S.M. Pinheiro, Daniel A. Rodrigues, Carlos M.R. Sant'Anna, Fabio F. Ferreira, Hugo Verli, Carlos A.M. Fraga, Daniel Rauh. _An Unusual Intramolecular Halogen Bond Guides Conformational Selection_, Angew. Chem. Int. Ed. **2018**, 57, 9970, DOI: [10.1002/anie.201804917](https://doi.org/10.1002/anie.201804917)
 
-## How to cite ConfID?
+## How to cite ***ConfID***?
 
-If you use ConfID, please cite:
+If you use ***ConfID***, please cite:
 
-Marcelo D. Polêto, Bruno I. Grisci, Marcio Dorn, Hugo Verli. ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories, Bioinformatics. 2019, Volume X, Issue X, Pages XXXX-XXXX, doi (in submission)
+Marcelo D. Polêto, Bruno I. Grisci, Marcio Dorn, Hugo Verli. _ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories_, Bioinformatics. **2019**, Volume X, Issue X, Pages XXXX-XXXX, doi (in submission)
 
 Bibtex entry:
 ```
