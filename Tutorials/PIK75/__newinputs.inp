@@ -1,8 +1,0 @@
-#This file was automatically created by ConfID.
-#Please do not try to use it as an input for the program, nor change or delete it while ConfID is running.
-#This file will self destruct.
-#Order: Distribution, Fluctuation
-Dihedrals/DIH1.dist.xvg, Tutorials/PIK75/DIH1.aver.xvg
-Dihedrals/DIH2.dist.xvg, Tutorials/PIK75/DIH2.aver.xvg
-Dihedrals/DIH3.dist.xvg, Tutorials/PIK75/DIH3.aver.xvg
-Dihedrals/DIH4.dist.xvg, Tutorials/PIK75/DIH4.aver.xvg
