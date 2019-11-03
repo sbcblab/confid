@@ -35,6 +35,8 @@ Genetic algorithms and knowledge-based approaches have been employed to study mo
 
 By using MD simulations (and assuming accurate parameters are used), ***ConfID*** can identify all conformational populations sampled in the presence of solvent and quantify their relative abundance, while harnessing the benefits of MD and calculating time-dependent properties of each conformational population.
 
+![alt text](https://github.com/sbcblab/confid/blob/master/images/confid1.png "ConfID")
+
 ## Tutorials
 
 a) [Two analogue ligands in water](TUTORIAL.md)
