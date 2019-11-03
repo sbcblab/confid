@@ -20,7 +20,7 @@
 
 # Installation
 
-## Install ConfID on Ubuntu using snapcraft (recommended)
+## Install ***ConfID*** on Ubuntu using snapcraft (recommended)
 
 ### 1. Enable snapd
 
@@ -33,28 +33,28 @@ $ sudo apt install snapd
 ```
 Either log out and back in again, or restart your system, to ensure snap’s paths are updated correctly.
 
-### 2. Install ConfID
+### 2. Install ***ConfID***
 
-To install ConfID, simply use the following commands on your terminal:
+To install ***ConfID***, simply use the following commands on your terminal:
 ```
 $ sudo snap install confid
 $ snap connect confid:removable-media
 ```
-Confirm ConfID is installed by listing your installed snaps:
+Confirm ***ConfID*** is installed by listing your installed snaps:
 ```
 $ snap list
 ```
-Then you can run ConfID by typing on your terminal:
+Then you can run ***ConfID*** by typing on your terminal:
 ```
 $ confid input.inp config
 ```
-## Install ConfID on other Linux distributions using snapcraft
+## Install ***ConfID*** on other Linux distributions using snapcraft
 
-To install ConfID in other Linux distributions (Fedora, Linux Mint, Kubuntu, Debian, etc.) please refer to the instructions at the bottom of the page: https://snapcraft.io/confid
+To install ***ConfID*** in other Linux distributions (Fedora, Linux Mint, Kubuntu, Debian, etc.) please refer to the instructions at the bottom of the page: https://snapcraft.io/confid
 
-## Install ConfID on macOS using the exec file (recommended)
+## Install ***ConfID*** on macOS using the exec file (recommended)
 
-You can run ConfID on your macOS machine by using the provided exec file.
+You can run ***ConfID*** on your macOS machine by using the provided exec file.
 
 ### 1. Download the exec
 
@@ -62,7 +62,7 @@ Download the file [confid_0.1.0_macos](confid_0.1.0_macos) to your directory of 
 
 Rename it to ```confid``` for practicality.
 
-### 2. Run ConfID
+### 2. Run ***ConfID***
 
 To run, simply type on your terminal in the same directory of the downloaded exec:
 
@@ -70,9 +70,9 @@ To run, simply type on your terminal in the same directory of the downloaded exe
 $ ./confid -h
 ```
 
-## Install ConfID on macOS using Snapcraft
+## Install ***ConfID*** on macOS using Snapcraft
 
-Snapcraft 3 can be installed via Homebrew on Apple macOS Yosemite (or later), and then used to build ConfID within the macOS environment.
+Snapcraft 3 can be installed via Homebrew on Apple macOS Yosemite (or later), and then used to build ***ConfID*** within the macOS environment.
 
 ### 1. Prerequisites
 
@@ -97,18 +97,18 @@ $ multipass shell testvm
 
 ### 3. Install the snap
 
-Install ConfID inside the virtual machine:
+Install ***ConfID*** inside the virtual machine:
 
 ```
 $ sudo snap install confid
 $ snap connect confid:removable-media
 ```
-Confirm ConfID is installed by listing your installed snaps:
+Confirm ***ConfID*** is installed by listing your installed snaps:
 
 ```
 $ snap list
 ```
-Run ConfID inside the virtual machine:
+Run ***ConfID*** inside the virtual machine:
 ```
 $ confid -h
 ```
@@ -118,15 +118,15 @@ Exit the virtual machine:
 $ exit
 ```
 
-## Install ConfID from the source code
+## Install ***ConfID*** from the source code
 
-This is the best way to use ConfID as a developer if you wish to modify the source code yourself, or if you want to use ConfID on other operating systems.
+This is the best way to use ***ConfID*** as a developer if you wish to modify the source code yourself, or if you want to use ***ConfID*** on other operating systems.
 
 ### 1. Check for dependencies
 
-To run ConfID you will need either Python 2.7 or Python 3.x installed in your machine.
+To run ***ConfID*** you will need either Python 2.7 or Python 3.x installed in your machine.
 
-ConfID requires the following external libraries:
+***ConfID*** requires the following external libraries:
 
 graphviz (https://pypi.org/project/graphviz/)
 matplotlib (https://matplotlib.org/)
@@ -140,19 +140,19 @@ $ sudo apt install -y libcairo2-dev
 $ sudo apt install -y libpango1.0-dev
 $ sudo apt install -y libgts-dev
 ```
-### 2. Download ConfID
+### 2. Download ***ConfID***
 
 Download all files from https://github.com/sbcblab/confid and save them to your directory of choice. If you have git installed you can do this by typing the following in your terminal:
 ```
 $ git clone https://github.com/sbcblab/confid.git
 ```
-Now you can run ConfID by typing the following command in your terminal:
+Now you can run ***ConfID*** by typing the following command in your terminal:
 ```
 $ python3 confID.py input.inp config
 ```
-### 3. Aliasing ConfID (optional)
+### 3. Aliasing ***ConfID*** (optional)
 
-To run ConfID in any given directory without carrying a lot of files with you, we strongly advise you to alias ConfID. For this:
+To run ***ConfID*** in any given directory without carrying a lot of files with you, we strongly advise you to alias ***ConfID***. For this:
 
 Copy the "confid" folder that was extracted before;
 
@@ -169,13 +169,13 @@ alias confid='python3 /installation\_folder\_you\_chose/ConfID/confID.py'
 ```
 $ source ~/.bashrc
 ```
-After this, you should be able to run ConfID in your terminal at any given directory by simple typing:
+After this, you should be able to run ***ConfID*** in your terminal at any given directory by simple typing:
 ```
 $ confid input.inp config
 ```
-# Running ConfID
+# Running ***ConfID***
 
-To run ConfID open your terminal and type
+To run ***ConfID*** open your terminal and type
 
 ### From Snapcraft
 ```
@@ -194,9 +194,9 @@ $ python3 confID.py input.inp config
 $ confid input.inp config
 ```
 
-In which "input.inp" is a file containing in each line the paths to each dihedral file to serve as input, and "config" is an optional file containing the configuration of parameters for ConfID.
+In which "input.inp" is a file containing in each line the paths to each dihedral file to serve as input, and "config" is an optional file containing the configuration of parameters for ***ConfID***.
 
-To read the help section of ConfID you can also run 
+To read the help section of ***ConfID*** you can also run 
 ```
 $ confid -h
 ```

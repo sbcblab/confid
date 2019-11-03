@@ -1,6 +1,6 @@
-# ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories
+# ***ConfID***: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories
 
-![alt text](images/confid.png "ConfID")
+![alt text](https://github.com/sbcblab/confid/blob/master/images/logos/confidlogo.png "ConfID")
 
 Welcome to ***ConfID***!
 
