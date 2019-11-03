@@ -175,9 +175,10 @@ This means that your ```config``` file has a line with less than or more than tw
 
 - _"ERROR: graphviz package needs to be installed if PLOT\_NETWORK is True, but it couldn't be imported."_
 
-This will happen if you try to plot networks within ***ConfID*** but does not have the Graphviz package installed in your system. You can either [install Graphviz manually]( https://graphviz.readthedocs.io/en/stable/manual.html) or set PLOT\_NETWORK to False and use the .gml files generated in a network visualization software such as Cytoscape \cite{Shannon2003}.
+This will happen if you try to plot networks within ***ConfID*** but does not have the Graphviz package installed in your system. You can either [install Graphviz manually]( https://graphviz.readthedocs.io/en/stable/manual.html) or set PLOT\_NETWORK to False and use the .gml files generated in a network visualization software such as [Cytoscape](https://cytoscape.org/).
 
 - _"ERROR: matplotlib.pyplot package needs to be installed if TIME\_DEPENDENT\_STATS is True, but it couldn't be imported."_
+
 This will happen if you don't have the matplotlib package installed in your system. You can solve this by installing [matplotlib](https://matplotlib.org/3.1.0/users/installing.html) or setting TIME\_DEPENDENT\_STATS to False.
 
 - _"ERROR: SIM\_TIME must be 'None' or a value larger than 0.0!"_
