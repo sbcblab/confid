@@ -85,3 +85,5 @@ Marcelo D. Polêto, Bruno Iochins Grisci, Marcio Dorn, Hugo Verli
 E-mail: marcelo.poleto@ufv.br / bigrisci@inf.ufrgs.br
 
 http://sbcb.inf.ufrgs.br/confid
+
+![http://www.ufrgs.br/ufrgs/inicial](images/logos/ufrgs.png "UFRGS") ![https://www.ufv.br/](images/logos/ufv.png "UFV") ![http://www.inf.ufrgs.br/site/](images/logos/inf.png "INF") ![https://www.ufrgs.br/bioinfo/](images/logos/gbe.png "GBE") ![http://sbcb.inf.ufrgs.br/home](images/logos/sbcb.png "SBCB")
