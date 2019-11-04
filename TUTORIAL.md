@@ -4,7 +4,7 @@ Hey there! This is a tutorial for using ***ConfID***, a tool for conformational 
 
 To find more about ***ConfID*** installation procedures, read [INSTALL.md](INSTALL.md). Here, we will assume you successfully installed ***ConfID*** (again: read the [INSTALL.md](INSTALL.md)).
 
-**NOTE**: This tutorial also uses ***XMGRACE*** for graphs visualization. You can install on Linux it by typing:
+**NOTE**: This tutorial also uses ***XMGRACE*** for graphs visualization. You can install it on Linux by typing:
 ```
 $ sudo apt-get install xmgrace
 ```
