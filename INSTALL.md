@@ -128,11 +128,11 @@ To run ***ConfID*** you will need either Python 2.7 or Python 3.x installed in y
 
 ***ConfID*** requires the following external libraries:
 
-graphviz (https://pypi.org/project/graphviz/)
-matplotlib (https://matplotlib.org/)
-numpy (https://numpy.org/)
+- graphviz (https://pypi.org/project/graphviz/)
+- matplotlib (https://matplotlib.org/)
+- numpy (https://numpy.org/)
 
-If any of those are missing, you should install them before continuing. It is important to notice thta before installing Graphviz for Python, make sure that the original software is installed (http://www.graphviz.org/download/). Before installing it, the following dependencies should be installed as well:
+If any of those are missing, you should install them before continuing. Before installing Graphviz for Python, make sure that the original software is installed (http://www.graphviz.org/download/). Before installing it, the following dependencies should be installed as well:
 ```
 $ sudo apt install -y libgd-dev
 $ sudo apt install -y fontconfig
@@ -152,9 +152,9 @@ $ python3 confID.py input.inp config
 ```
 ### 3. Aliasing ***ConfID*** (optional)
 
-To run ***ConfID*** in any given directory without carrying a lot of files with you, we strongly advise you to alias ***ConfID***. For this:
+To run ***ConfID*** in any given directory without carrying a lot of files with you, we advise you to alias ***ConfID***. For this:
 
-Copy the "confid" folder that was extracted before;
+Copy the ```confid``` folder that was extracted before;
 
 Move it to an installation folder of your choice;
 
@@ -194,7 +194,7 @@ $ python3 confID.py input.inp config
 $ confid input.inp config
 ```
 
-In which "input.inp" is a file containing in each line the paths to each dihedral file to serve as input, and "config" is an optional file containing the configuration of parameters for ***ConfID***.
+In which ```input.inp``` is a file containing in each line the paths to each dihedral file to serve as input, and ```config``` is an optional file containing the configuration of parameters for ***ConfID***.
 
 To read the help section of ***ConfID*** you can also run 
 ```
