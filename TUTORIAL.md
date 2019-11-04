@@ -39,7 +39,7 @@ The command line above should return a list of dihedral values of all frames, wh
 
 In this tutorial, all dihedral fluctuations and overall distribution are already placed in a specific directory, along with files ```input.inp```, containing input names, and ```config```, containing ***ConfID*** parameters. For both ```ANA``` and ```PIK75``` folders, you should find the files:
 
-- [DIH\*.values.xvg](Tutorials/ANA/DIH1.aver.xvg)
+- [DIH\*.values.xvg](Tutorials/ANA/DIH1.values.xvg)
 - [input.inp](Tutorials/ANA/input.inp)
 - [config](Tutorials/ANA/config)
 
