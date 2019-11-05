@@ -7,7 +7,7 @@
 header    = """
     ###########################################################################
     #                        Conformational Identifier                        #
-    #                            ConfID 0.1.0 (2019)                          #
+    #                            ConfID 1.2.0 (2019)                          #
     #                                                                         #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
     # analytical method for conformational characterization of small          #

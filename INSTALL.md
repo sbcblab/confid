@@ -1,7 +1,7 @@
 ```
     ###########################################################################
     #                        Conformational Identifier                        #
-    #                            ConfID 0.1.0 (2019)                          #
+    #                            ConfID 1.2.0 (2019)                          #
     #                                                                         #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
     # analytical method for conformational characterization of small          #
@@ -58,7 +58,7 @@ You can run ***ConfID*** on your macOS machine by using the provided exec file.
 
 ### 1. Download the exec
 
-Download the file [confid_0.1.0_macos](confid_0.1.0_macos) to your directory of choice: https://github.com/sbcblab/confid/blob/master/confid_0.1.0_macos
+Download the file [confid_1.2.0_macos](confid_1.2.0_macos) to your directory of choice: https://github.com/sbcblab/confid/blob/master/confid_1.2.0_macos
 
 Rename it to ```confid``` for practicality.
 
