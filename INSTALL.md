@@ -22,8 +22,6 @@
 
 ## Install ***ConfID*** on Ubuntu using snapcraft (recommended)
 
-<iframe src="https://snapcraft.io/confid/embedded?button=white&summary=true" frameborder="0" width="100%" height="360px" style="border: 1px solid #CCC; border-radius: 2px;"></iframe>
-
 ### 1. Enable snapd
 
 If you are using Ubuntu 16.04 LTS (Xenial Xerus) or later, including Ubuntu 18.04 LTS (Bionic Beaver), Ubuntu 18.10 (Cosmic Cuttlefish) and Ubuntu 19.04 (Disco Dingo), Snap should be already installed.

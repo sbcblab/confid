@@ -16,8 +16,6 @@ By using molecular dynamics (MD) simulations (and assuming accurate parameters a
 - For usage and configuration instructions, please read the ***ConfID*** manual.
 - For tutorials please read [TUTORIAL.md](TUTORIAL.md).
 
-<iframe src="https://snapcraft.io/confid/embedded?button=white&summary=true" frameborder="0" width="100%" height="360px" style="border: 1px solid #CCC; border-radius: 2px;"></iframe>
-
 Have a nice "_ConfIDent_" analysis! =)
 
 ## What is ***ConfID***?
