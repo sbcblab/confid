@@ -6,6 +6,7 @@ def convert(input_files, dihedral_folder='Dihedrals/'):
     if not os.path.exists(dihedral_folder):
         os.makedirs(dihedral_folder)
 
+    n_angles = []
     files_paths = []
     with open(input_files, 'r') as infs:
         for line in infs:
@@ -18,8 +19,6 @@ def convert(input_files, dihedral_folder='Dihedrals/'):
                 aver_file = input_files.replace(os.path.basename(input_files), '') + files[0].rstrip().replace(' ', '')
                 name = os.path.basename(aver_file)
                 name, extension = os.path.splitext(name)
-                if name != '.aver':
-                    name = name.replace('.aver','')
                 dist_file = dihedral_folder+os.path.basename(aver_file).replace(os.path.basename(aver_file), name+'.dist.xvg')
                 files_paths.append([dist_file, aver_file])
 
@@ -36,12 +35,16 @@ def convert(input_files, dihedral_folder='Dihedrals/'):
                             else:
                                 raise Exception('ERROR: wrong number of columns ({}) in the dihedral file {}:\n{}'.format(len(l), aver_file, l))
 
+                n_angles.append(len(angles))
+                if len(n_angles) >= 2:
+                    if n_angles[-1] != n_angles[-2]:
+                        raise Exception('ERROR: conflicting number of timesteps ({} != {}) in the dihedral file {}.\n'.format(n_angles[-1], n_angles[-2], aver_file))
                 angles = np.array(angles)
                 avg_angle = round(angles.mean(), 4)
                 angles = np.round(angles)
                 unique, counts = np.unique(angles, return_counts=True)
                 dist = list(zip(unique, np.round(counts/float(len(angles)), 6)))
-                zeroes = set(range(max(int(min(angles))-1, -180), min(int(max(angles)+2), 180))) - set(angles)
+                zeroes = set(range(-180,180)) - set(angles)
                 for z in zeroes:
                     dist.append((z, 0.0))
 

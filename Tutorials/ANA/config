@@ -5,7 +5,7 @@ TIME_STATS_FOLDER    Output/Time_Dependent_Stats/
 SIM_TIME             None
 SHOW_Z               False
 NETWORK_CUTOFF       0.01
-PLOT_NETWORK         False
+PLOT_NETWORK         True
 CONVERGENCE_CUTOFF   0.01
 FACTOR_PEAK          50.0
 FACTOR_VALLEY        60.0

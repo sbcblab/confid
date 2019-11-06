@@ -12,7 +12,7 @@ By using structural information gathered from MD simulations (and assuming accur
 
 If we consider the dihedral angles of a molecule throughout an MD simulation, a conformational population is the set of conformations sharing similar values for their respective dihedral angles. ***ConfID*** finds these conformational populations by following this procedure:
 
-1 - The value of each dihedral angle is measured for each simulation time step, as well as the distribution of the angle (how much of the total simulated time was spent in each angle value). These distributions are smoothed using the Hann function with a sliding window of length 21°, obtaining a curve with well-behaved gradient. 
+1 - The value of each dihedral angle is measured for each simulation time step, as well as the distribution of the angle (how much of the total simulated time was spent in each angle value). These distributions are smoothed using the Hann function with a sliding window, obtaining a curve with well-behaved gradient. 
 
 2 - From this distribution, “peaks” and “valleys” are identified. A peak is an angle with maximum local value (the distribution of that angle is larger than the distribution of its immediate neighbors). A valley is an angle with minimum local value or angles with distribution below a given threshold that indicates a distribution value so low that the angle should be considered spurious. 
 
@@ -165,9 +165,13 @@ This means that one or more of your files with dihedral values have more than tw
 
 This means that you are using dihedral files with only one column (dihedral value) but at least one line has more than one value.
 
-- "ERROR: missing value in the dihedral file! ConfID only reads files with one (dihedral value) or two columns (time and dihedral value)."_
+- _"ERROR: missing value in the dihedral file! ConfID only reads files with one (dihedral value) or two columns (time and dihedral value)."_
 
 This means that you are using dihedral files with two columns (time and dihedral value), but at least one line has less than two values.
+
+- _"ERROR: conflicting number of timesteps in the dihedral file."_
+
+This means that at least one dihedral file from your ```input.inp``` has a different number of timesteps. Please ensure that all your input files have the exact same number of simulation timesteps.
 
 - _"ERROR: Wrong number of columns in file: Config file must have only two columns separated by space."_
 
@@ -215,6 +219,10 @@ The SIM\_TIME was equal to "None" or was not specified in the ```config``` file,
 - _"ERROR: Unidentified function:"_
 
 This error will happen when an unidentified function is passed as an argument to DATA\_1 or DATA\_2 in the ```config``` file. The possible values are sum, max, min, aver, std, median, and count.
+
+- _"ValueError: Input vector needs to be bigger than window size."_
+
+This error will happen only if the file containing the dihedral distributions (```*.dist.xvg```) has less than 21 angles listed.
 
 - _"WARNING: Unidentified parameter ignored"_
 
