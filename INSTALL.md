@@ -1,3 +1,4 @@
+[![confid](https://snapcraft.io//confid/badge.svg)](https://snapcraft.io/confid)
 ```
     ###########################################################################
     #                        Conformational Identifier                        #
@@ -143,8 +144,6 @@ $ sudo apt install -y libpango1.0-dev
 $ sudo apt install -y libgts-dev
 ```
 ### 2. Download ***ConfID***
-
-[![confid](https://snapcraft.io//confid/badge.svg)](https://snapcraft.io/confid)
 
 Download all files from https://github.com/sbcblab/confid and save them to your directory of choice. If you have git installed you can do this by typing the following in your terminal:
 ```
