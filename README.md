@@ -1,5 +1,7 @@
 # ***ConfID***: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories
 
+[![confid](https://snapcraft.io//confid/badge.svg)](https://snapcraft.io/confid)
+
 ![alt text](https://github.com/sbcblab/confid/blob/master/images/logos/confidlogo.png "ConfID")
 
 Welcome to ***ConfID***!
@@ -15,6 +17,8 @@ By using molecular dynamics (MD) simulations (and assuming accurate parameters a
 - To download ***ConfID*** from snapcraft: https://snapcraft.io/confid
 - For usage and configuration instructions, please read the ***ConfID*** manual.
 - For tutorials please read [TUTORIAL.md](TUTORIAL.md).
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/confid)
 
 Have a nice "_ConfIDent_" analysis! =)
 
