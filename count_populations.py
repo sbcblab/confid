@@ -405,16 +405,20 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
 
     if not os.path.exists(output_folder + 'CONF_Frames/'):
         os.makedirs(output_folder + 'CONF_Frames/')
-
-    for rs, cs in counter.most_common():
-        freq = round(float(cs)/float(len(ANGLES[0])), 6)
-        if freq >= convergence_cutoff:
-            with open(output_folder+'CONF_Frames/Frames_Conf-'+str(i+1)+'.txt', 'w') as time_file:
-                time_file.write(str(rs))
-                for t in regions_times[rs]:
-                    time_file.write('\n' + str(t))
-        i += 1
-        #print('Saved file {}'.format(alias+'_'+str(i+1)+'.txt'))
+    
+    with open(output_folder+'CONF_Frames/confXtime.csv', 'w') as conf_time_file:
+        conf_time_file.write('TIME, CONF')
+        for rs, cs in counter.most_common():
+            freq = round(float(cs)/float(len(ANGLES[0])), 6)
+            for t in regions_times[rs]:
+                conf_time_file.write('\n{}, {}'.format(t, i+1))
+            if freq >= convergence_cutoff:
+                with open(output_folder+'CONF_Frames/Frames_Conf-'+str(i+1)+'.txt', 'w') as time_file:
+                    time_file.write(str(rs))
+                    for t in regions_times[rs]:
+                        time_file.write('\n' + str(t))
+            i += 1
+            #print('Saved file {}'.format(alias+'_'+str(i+1)+'.txt'))
 
     ################################################################
     print("\n#####################################\n>>>>>> TRANSITIONS:\n")
