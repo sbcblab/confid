@@ -26,12 +26,12 @@ Have a nice "_ConfIDent_" analysis! =)
 
 It is a Python-based computational tool designed to identify and characterize conformational populations of small molecules sampled through molecular dynamics simulations.
 
-ConfID was developed by:
+***ConfID*** was developed by:
 
-- [Bruno I. Grisci](https://orcid.org/0000-0003-4083-5881) - PhD student (Institute of Informatics - UFRGS)
-- [Marcelo D. Polêto](https://orcid.org/0000-0001-9210-690X) - Postdoctoral Researcher (General Biology Department - UFV)
-- [Marcio Dorn](https://orcid.org/0000-0001-8534-3480) - Adjunct Professor (Institute of Informatics - UFRGS)
-- [Hugo Verli](https://orcid.org/0000-0002-4796-8620) - Associate Professor (Center of Biotechnology - UFRGS) 
+- [Bruno I. Grisci](https://orcid.org/0000-0003-4083-5881) - PhD student ([Institute of Informatics](https://www.inf.ufrgs.br/site/en) - [UFRGS](http://www.ufrgs.br/english/home))
+- [Marcelo D. Polêto](https://orcid.org/0000-0001-9210-690X) - Postdoctoral Researcher ([General Biology Department](http://www.dbg.ufv.br/) - [UFV](https://www.ufv.br/international-students/))
+- [Marcio Dorn](https://orcid.org/0000-0001-8534-3480) - Adjunct Professor ([Institute of Informatics](https://www.inf.ufrgs.br/site/en) - [UFRGS](http://www.ufrgs.br/english/home))
+- [Hugo Verli](https://orcid.org/0000-0002-4796-8620) - Associate Professor ([Center of Biotechnology](http://www.cbiot.ufrgs.br/) - [UFRGS](http://www.ufrgs.br/english/home)) 
 
 ## To which problems ***ConfID*** was designed for?
 
@@ -53,7 +53,7 @@ Do you have any questions? Take a look on our [FAQ](FAQ.md)!
 
 There are some papers already using ***ConfID***! These are some:
 
-- Pablo R. Arantes, Conrado Pedebos, Marcelo D. Polêto, Laércio Pol-Fachin, and Hugo Verli. _The Lazy Life of Lipid-Linked Oligosaccharides in All Life Domains_, Journal of Chemical Information and Modeling **2019** XXXX, XXX, XXX-XXX, DOI: [10.1021/acs.jcim.9b00904](https://doi.org/10.1021/acs.jcim.9b00904)
+- Pablo R. Arantes, Conrado Pedebos, Marcelo D. Polêto, Laércio Pol-Fachin, and Hugo Verli. _The Lazy Life of Lipid-Linked Oligosaccharides in All Life Domains_, Journal of Chemical Information and Modeling **2020** 60 (2), 631-643, DOI: [10.1021/acs.jcim.9b00904](https://doi.org/10.1021/acs.jcim.9b00904)
 
 - Pablo R. Arantes, Marcelo D. Polêto, Elisa B. O. John, Conrado Pedebos, Bruno I. Grisci, Marcio Dorn, and Hugo Verli. _Development of GROMOS-Compatible Parameter Set for Simulations of Chalcones and Flavonoids_, The Journal of Physical Chemistry B **2019** 123 (5), 994-1008, DOI: [10.1021/acs.jpcb.8b10139](https://doi.org/10.1021/acs.jpcb.8b10139)
 
@@ -78,7 +78,7 @@ Bibtex entry:
 }
 ```
 
-***ConfID*** is registered at _Instituto Nacional da Propriedade Industrial (INPI)_ under the number BR512019001928-8 and is freely available under the license [LGPL-3.0](LICENSE.md).
+***ConfID*** is registered at _Instituto Nacional da Propriedade Industrial (INPI)_ under the number **BR512019001928-8** and is freely available under the license [LGPL-3.0](LICENSE.md).
 
 ## Contact information
 

@@ -250,7 +250,7 @@ We apologize for any bugs you may be witnessing. We kindly ask you to send your 
 
 There are some papers already using ***ConfID***! Take a look:
 
-- Pablo R. Arantes, Conrado Pedebos, Marcelo D. Polêto, Laércio Pol-Fachin, and Hugo Verli. _The Lazy Life of Lipid-Linked Oligosaccharides in All Life Domains_, Journal of Chemical Information and Modeling **2019** XXXX, XXX, XXX-XXX, DOI: [10.1021/acs.jcim.9b00904](https://doi.org/10.1021/acs.jcim.9b00904)
+- Pablo R. Arantes, Conrado Pedebos, Marcelo D. Polêto, Laércio Pol-Fachin, and Hugo Verli. _The Lazy Life of Lipid-Linked Oligosaccharides in All Life Domains_, Journal of Chemical Information and Modeling **2020** 60 (2), 631-643, DOI: [10.1021/acs.jcim.9b00904](https://doi.org/10.1021/acs.jcim.9b00904)
 
 - Pablo R. Arantes, Marcelo D. Polêto, Elisa B. O. John, Conrado Pedebos, Bruno I. Grisci, Marcio Dorn, and Hugo Verli. _Development of GROMOS-Compatible Parameter Set for Simulations of Chalcones and Flavonoids_, The Journal of Physical Chemistry B **2019** 123 (5), 994-1008, DOI: [10.1021/acs.jpcb.8b10139](https://doi.org/10.1021/acs.jpcb.8b10139)
 
@@ -275,4 +275,4 @@ Bibtex entry:
 }
 ```
 
-***ConfID*** is registered at _Instituto Nacional da Propriedade Industrial (INPI)_ under the number BR512019001928-8 and is freely available under the license [LGPL-3.0](LICENSE.md).
+***ConfID*** is registered at _Instituto Nacional da Propriedade Industrial (INPI)_ under the number **BR512019001928-8** and is freely available under the license [LGPL-3.0](LICENSE.md).
