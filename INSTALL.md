@@ -6,8 +6,8 @@
     #                                                                         #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
     # analytical method for conformational characterization of small          #
-    # molecules using molecular dynamics trajectories, Bioinformatics, Volume #
-    # X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                         #
+    # molecules using molecular dynamics trajectories, Bioinformatics, 2020,  #
+    # doi 10.1093/bioinformatics/btaa130                                      #
     #                                                                         #
     #                    http://sbcb.inf.ufrgs.br/confid                      #
     #                                                                         #
@@ -203,3 +203,9 @@ To read the help section of ***ConfID*** you can also run
 ```
 $ confid -h
 ```
+
+# And now what?
+
+Once you have successfully installed ***ConfID***, you are ready to start using it on your own research. Before embarking on an adventure, however, it may be a good idea to try our [tutorial](TUTORIAL.md). If you are looking for more information, you can also check the [application note](https://doi.org/10.1093/bioinformatics/btaa130) and the [user manual](ConfID_manual.pdf).
+
+Have a nice "_ConfIDent_" analysis! =)  

@@ -2,7 +2,7 @@
 
 Hey there! This is a tutorial for using ***ConfID***, a tool for conformational characterization of drug-like molecules. You can download all tutorial inputs [here](Tutorials).
 
-To find more about ***ConfID*** installation procedures, read [INSTALL.md](INSTALL.md). Here, we will assume you successfully installed ***ConfID*** (again: read the [INSTALL.md](INSTALL.md)).
+To find more about ***ConfID*** installation procedures, read [INSTALL.md](INSTALL.md). Here, we will assume you successfully installed ***ConfID*** (again: read the [INSTALL.md](INSTALL.md)). For more details on how ***ConfID*** works you can check the complete [user manual](ConfID_manual.pdf). 
 
 **NOTE**: This tutorial also uses ***XMGRACE*** for graphs visualization. You can install it on Linux by typing:
 ```

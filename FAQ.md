@@ -260,18 +260,21 @@ There are some papers already using ***ConfID***! Take a look:
 
 If you use ***ConfID***, please cite:
 
-Marcelo D. Polêto, Bruno I. Grisci, Marcio Dorn, Hugo Verli. _ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories_, Bioinformatics. **2019**, Volume X, Issue X, Pages XXXX-XXXX, doi (in submission)
+Marcelo D. Polêto, Bruno I. Grisci, Marcio Dorn, Hugo Verli. _ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories_, Bioinformatics, **2020**, btaa130, DOI: [10.1093/bioinformatics/btaa130](https://doi.org/10.1093/bioinformatics/btaa130)
 
 Bibtex entry:
 ```
-@article{confid,
-  title={},
-  author={},
-  journal={},
-  volume={},
-  pages={},
-  year={},
-  publisher={}
+@article{10.1093/bioinformatics/btaa130,
+    author = {Polêto, M D and Grisci, B I and Dorn, M and Verli, H},
+    title = "{ConfID: an analytical method for conformational characterization of small molecules using molecular dynamics trajectories}",
+    journal = {Bioinformatics},
+    year = {2020},
+    month = {02},
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btaa130},
+    url = {https://doi.org/10.1093/bioinformatics/btaa130},
+    note = {btaa130},
+    eprint = {https://academic.oup.com/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btaa130/32677172/btaa130.pdf},
 }
 ```
 

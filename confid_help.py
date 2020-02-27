@@ -11,8 +11,8 @@ header    = """
     #                                                                         #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
     # analytical method for conformational characterization of small          #
-    # molecules using molecular dynamics trajectories, Bioinformatics, Volume #
-    # X, Issue X, Day Month 2019, Pages XXXX-XXX, doi                         #
+    # molecules using molecular dynamics trajectories, Bioinformatics, 2020,  #
+    # doi 10.1093/bioinformatics/btaa130                                      #
     #                                                                         #
     #                    http://sbcb.inf.ufrgs.br/confid                      #
     #                                                                         #
