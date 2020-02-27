@@ -15,10 +15,9 @@ By using molecular dynamics (MD) simulations (and assuming accurate parameters a
 - ***ConfID*** homepage: http://sbcb.inf.ufrgs.br/confid
 - For installation instructions, please read [INSTALL.md](INSTALL.md).
 - To download ***ConfID*** from snapcraft: https://snapcraft.io/confid
-- For usage and configuration instructions, please read the ***ConfID*** manual.
+- For usage and configuration instructions, please read the [***ConfID*** manual](ConfID_manual.pdf).
 - For tutorials please read [TUTORIAL.md](TUTORIAL.md).
 - For the application note: https://doi.org/10.1093/bioinformatics/btaa130
-- Also check the complete [user manual](ConfID_manual.pdf). 
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/confid)
 
