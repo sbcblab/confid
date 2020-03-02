@@ -210,6 +210,7 @@ This error will happen if you use a FACTOR\_PEAK so small that no peaks could be
 This error will happen if you use a FACTOR\_VALLEY so large that no peaks could be found.
 
 - _"ERROR: total simulation time in the dihedral file is different from simulation time in the config file!"_
+
 There is a value other than "None" for SIM\_TIME in the ```config``` file, and the dihedral files have two columns, one of them being the time steps. The values in these files are different, so one of them must be wrong.
 
 - _"ERROR: total simulation time was not declared in the config file, but the dihedral file has no time column!"_
