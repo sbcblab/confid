@@ -172,7 +172,7 @@ def show_graph(nodes, edges, first_node, last_node, cutoff, filename, plot_graph
 ################################################################
 ################################################################
 
-def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv, sim_time):
+def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, window_len, window, fp, fv, sim_time):
 
     alias = output_folder + os.path.basename(input_files).replace('.inp', '')
 
@@ -211,7 +211,7 @@ def main(input_files, output_folder, xvgs_folder, time_folder, graphs_folder, sh
                     if not os.path.exists(time_folder + s):
                         os.makedirs(time_folder + s)
 
-                p = pops(files[0], xvgs_folder, fp, fv)
+                p = pops(files[0], xvgs_folder, window_len, window, fp, fv)
                 rs = []
                 for r, pk in zip(p.regions, p.peaks):
                     rs.append(region(r, pk, files[1]))

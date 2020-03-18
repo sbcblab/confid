@@ -37,6 +37,8 @@ if __name__ == '__main__':
     cutoff        = 0.01
     plot_graph    = False
     convergence_cutoff = 0.01
+    window_len    = 21
+    window        = 'hanning'
     fp            = 50.0
     fv            = 60.0
     show_kinetic  = True
@@ -111,6 +113,8 @@ if __name__ == '__main__':
                         print('{} = {}'.format(l[0], show_z))
                     elif l[0].upper() == 'NETWORK_CUTOFF':
                         cutoff = float(l[1])
+                        if cutoff < 0.0 or cutoff > 1.0:
+                            raise ValueError("ERROR: NETWORK_CUTOFF must be float between 0.0 and 1.0.")                    
                         print('{} = {}'.format(l[0], cutoff))
                     elif l[0].upper() == 'PLOT_NETWORK':
                         plot_graph = l[1].lower() == 'true'
@@ -122,7 +126,21 @@ if __name__ == '__main__':
                                 raise Exception("\n\nERROR: graphviz package needs to be installed if PLOT_NETWORK is True, but it couldn't be imported.")
                     elif l[0].upper() == 'CONVERGENCE_CUTOFF':
                         convergence_cutoff = float(l[1])
+                        if convergence_cutoff < 0.0 or convergence_cutoff > 1.0:
+                            raise ValueError("ERROR: CONVERGENCE_CUTOFF must be float between 0.0 and 1.0.")
                         print('{} = {}'.format(l[0], convergence_cutoff))
+
+                    elif l[0].upper() == 'WINDOW_LEN':
+                        window_len = int(l[1])
+                        if window_len < 3 or window_len >= 180 or window_len%2 == 0:
+                            raise ValueError("ERROR: WINDOW_LEN must be odd integer between 3 and 180.")
+                        print('{} = {}'.format(l[0], window_len))
+                    elif l[0].upper() == 'WINDOW':
+                        window = l[1].lower()
+                        if not window in ['flat', 'hanning', 'hamming', 'bartlett', 'blackman']:
+                            raise ValueError("ERROR: WINDOW must be one of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'")                        
+                        print('{} = {}'.format(l[0], window))
+
                     elif l[0].upper() == 'FACTOR_PEAK':
                         fp = float(l[1])
                         if fp < 1.0:
@@ -157,7 +175,7 @@ if __name__ == '__main__':
     elif len(sys.argv) == 2:
         input_files = sys.argv[1]
 
-        if input_files in ['-h', '-H', '-help', '--h', '--H', '--help']:
+        if input_files in ['-h', '-H', '-help', '-HELP', '--h', '--H', '--help', '--HELP']:
             print(confid_help.help_text)
             sys.exit(0)
 
@@ -178,6 +196,8 @@ if __name__ == '__main__':
         print('NETWORK_CUTOFF       = {}'.format(cutoff))
         print('PLOT_NETWORK         = {}'.format(plot_graph))
         print('CONVERGENCE_CUTOFF   = {}'.format(convergence_cutoff))
+        print('WINDOW_LEN           = {}'.format(window_len))
+        print('WINDOW               = {}'.format(window))                
         print('FACTOR_PEAK          = {}'.format(fp))
         print('FACTOR_VALLEY        = {}'.format(fv))
         print('TIME_DEPENDENT_STATS = {}'.format(show_kinetic))
@@ -196,7 +216,7 @@ if __name__ == '__main__':
 
     new_inputs = aver2dist.convert(input_files, dihedral_folder=DIST_DIR)
 
-    POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, fp, fv, sim_time)
+    POP_ID = count_populations.main(new_inputs, output_folder, xvgs_folder, time_folder, graphs_folder, show_z, cutoff, plot_graph, convergence_cutoff, window_len, window, fp, fv, sim_time)
 
     if show_kinetic:
         print("\n#####################################\n>>>>>> CONFORMATIONAL TIME-DEPENDENT STATISTICS:")
@@ -228,14 +248,14 @@ if __name__ == '__main__':
 
         print("\n#####################################\n>>>>>> DIHEDRAL TIME-DEPENDENT STATISTICS:")
 
-        for fp in files_paths:
+        for fps in files_paths:
             for f1 in fun1:
                 for f2 in fun2:
                     print('==')
                     print('First  axis: ' + f1)
                     print('Second axis: ' + f2)
-                    print(fp)
-                    count_stay.main(fp, f1, f2)
+                    print(fps)
+                    count_stay.main(fps, f1, f2)
 
     try:
         if os.path.exists(new_inputs):

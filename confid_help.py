@@ -7,7 +7,7 @@
 header    = """
     ###########################################################################
     #                        Conformational Identifier                        #
-    #                            ConfID 1.2.0 (2019)                          #
+    #                            ConfID 1.2.1 (2020)                          #
     #                                                                         #
     # Marcelo D Poleto, Bruno I Grisci, Marcio Dorn, Hugo Verli, ConfID: an   #
     # analytical method for conformational characterization of small          #
@@ -129,6 +129,8 @@ help_text = """
         NETWORK_CUTOFF       0.01
         PLOT_NETWORK         False
         CONVERGENCE_CUTOFF   0.01
+        WINDOW_LEN           21
+        WINDOW               hanning
         FACTOR_PEAK          50.0
         FACTOR_VALLEY        60.0
         TIME_DEPENDENT_STATS True
@@ -149,9 +151,12 @@ help_text = """
     TIME_STATS_FOLDER       (string)  
     SIM_TIME                (None or float)   [None / > 0.0]  
     SHOW_Z                  (string)          [False / True]
-    NETWORK_CUTOFF          (float)           [>= 0.0]      
+    NETWORK_CUTOFF          (float)           [>= 0.0, <= 1.0]      
     PLOT_NETWORK            (string)          [False / True]     
-    CONVERGENCE_CUTOFF      (float)           [>= 0.0]                       
+    CONVERGENCE_CUTOFF      (float)           [>= 0.0, <= 1.0]   
+    WINDOW_LEN              (int)             [>= 3, < 180, must be odd]
+    WINDOW                  (string)          [flat / hanning / hamming / 
+                                               bartlett / blackman]         
     FACTOR_PEAK             (float)           [>= 1.0, < FACTOR_VALLEY]    
     FACTOR_VALLEY           (float)           [>= 1.0, > FACTOR_PEAK]         
     TIME_DEPENDENT_STATS    (string)          [False / True]              
@@ -201,6 +206,18 @@ help_text = """
                             equal to 0.0, all populations will be 
                             represented, but for a large number of dihedral
                             angles this can take a while.
+    WINDOW_LEN              - range of neighbouring angles in the original
+                            distribution that will be averaged (using the 
+                            function defined in WINDOW) to smooth the 
+                            distribution curve of each angle. Must be an odd
+                            integer between 3 and 180. The default is 21,
+                            which means the previous and next 10 angles will
+                            be considered in the smooth of the distribution. 
+    WINDOW                  - the name of the function to average the angles
+                            distribution in the window range defined in
+                            WINDOW_LEN. For details about the functions see
+            https://docs.scipy.org/doc/numpy/reference/routines.window.html
+    
     FACTOR_PEAK             - factor that sets the constriction for peaks 
                             selection. Larger values lessen the constriction.
                             Must be larger or equal to 1.0 and smaller than 
@@ -236,8 +253,10 @@ help_text = """
 
     Are you trying to read or write files in a removable media (pendrives, 
     external HDs, etc)?
+
     Then you must give ConfID access to removable media after installing it by 
     running the following command in your terminal:
+    
     $ snap connect confid:removable-media
 
     ###

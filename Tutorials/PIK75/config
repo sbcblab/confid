@@ -7,6 +7,8 @@ SHOW_Z               False
 NETWORK_CUTOFF       0.01
 PLOT_NETWORK         True
 CONVERGENCE_CUTOFF   0.01
+WINDOW_LEN           21
+WINDOW               hanning
 FACTOR_PEAK          50.0
 FACTOR_VALLEY        60.0
 TIME_DEPENDENT_STATS True

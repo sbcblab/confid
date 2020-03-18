@@ -9,7 +9,7 @@ import numpy as np
 import re
 
 class pops:
-    def __init__(self, data_file_name, folder_name, fp=20.0, fv=50.0):
+    def __init__(self, data_file_name, folder_name, window_len, window, fp=20.0, fv=50.0):
         self.data_file_name = data_file_name
         self.folder_name = folder_name
         self.fp = fp
@@ -36,7 +36,7 @@ class pops:
         angles = angles + translation
 
         sorter = np.argsort(angles)
-        s = self.smooth(dists[sorter])
+        s = self.smooth(dists[sorter], window_len, window)
 
         peaks = self.find_peaks(s)
         pk = np.zeros(angles.size)
@@ -61,7 +61,7 @@ class pops:
         self.save(self.data_file_name.replace('.xvg', 'peaks'),   self.folder_name,  angles[sorter], pk)
         self.save(self.data_file_name.replace('.xvg', 'valleys'), self.folder_name,  angles[sorter], vl)
 
-    def smooth(self, x, window_len=21, window='hanning'):
+    def smooth(self, x, window_len, window):
         if x.ndim != 1:
             raise ValueError("Smooth only accepts 1 dimension arrays.")
         if x.size < window_len:
@@ -69,7 +69,7 @@ class pops:
         if window_len<3:
             return x
         if not window in ['flat', 'hanning', 'hamming', 'bartlett', 'blackman']:
-            raise ValueError("Window is on of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'")
+            raise ValueError("Window must be one of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'")
         s=np.r_[x[window_len-1:0:-1],x,x[-2:-window_len-1:-1]]
         #print(len(s))
         if window == 'flat': #moving average
@@ -77,7 +77,8 @@ class pops:
         else:
             w=eval('np.'+window+'(window_len)')
         y=np.convolve(w/w.sum(),s,mode='valid')
-        return y[10:-10]
+        y_neighbours = int(np.floor(window_len/2))
+        return y[y_neighbours:-y_neighbours]
 
     def find_peaks(self, distribution):
         peaks = []
