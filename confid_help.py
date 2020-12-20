@@ -217,7 +217,9 @@ help_text = """
                             distribution in the window range defined in
                             WINDOW_LEN. For details about the functions see
             https://docs.scipy.org/doc/numpy/reference/routines.window.html
-    
+                            The default is 'hanning'. The available functions
+                            are 'flat', 'hanning', 'hamming', 'bartlett', 
+                            and 'blackman'.
     FACTOR_PEAK             - factor that sets the constriction for peaks 
                             selection. Larger values lessen the constriction.
                             Must be larger or equal to 1.0 and smaller than 

@@ -98,6 +98,8 @@ SHOW_Z (string) [False / True] defaults to False
 NETWORK_CUTOFF (float) [>= 0.0] defaults to 0.01
 PLOT_NETWORK (string) [False / True] defaults to False
 CONVERGENCE_CUTOFF (float) [>= 0.0] defaults to 0.01
+WINDOW_LEN (integer) [>=3, < 180, odd] defaults to 21
+WINDOW (string) ['flat', 'hanning', 'hamming', 'bartlett', 'blackman'] defaults to hanning
 FACTOR_PEAK (float) [>= 1.0, < FACTOR_VALLEY] defaults to 50.0
 FACTOR_VALLEY (float) [>= 1.0, > FACTOR_PEAK] defaults to 60.0
 TIME_DEPENDENT_STATS (string) [False / True] defaults to True
@@ -105,7 +107,7 @@ DATA_1 (list of strings)
 [sum / max / min / aver / std / median / count] defaults to sum
 DATA_2 (list of strings)
 [sum / max / min / aver / std / median / count] defaults to aver
-```
+
 A brief explanation of each parameter:
 ```
 RESULTS_FOLDER: specifies the directory in which output files should be saved.
@@ -117,6 +119,8 @@ SHOW_Z: a flag that determines if spurious regions (Z) should be represented in 
 NETWORK_CUTOFF: the smallest transition frequency required for an edge to appear in the networks. If equal to 0.0, all edges are considered. If this cutoff is too small, please consider setting PLOT_NETWORK to False, as plotting the chart may become too slow.
 PLOT_NETWORK: if True, networks figures for the transitions will be created using the graphviz library. Network text files will be created if it is either True or False.
 CONVERGENCE_CUTOFF: the smallest population frequency at the end of the simulation required for the convergence file for that population to be generated. If equal to 0.0, all populations will be represented, but for a large number of dihedral angles, this can take a while.
+WINDOW_LEN: range of neighbouring angles in the original distribution that will be averaged (using the function defined in WINDOW) to smooth the distribution curve of each angle. Must be an odd integer between 3 and 180. The default is 21, which means the previous 10 and next 10 angles will be considered in the smooth of the distribution. This parameter is only available from ***ConfID*** version 1.2.1. 
+WINDOW: the name of the function to average the angles distribution in the window range defined in WINDOW_LEN. For details about the functions see the [SciPy reference](https://docs.scipy.org/doc/numpy/reference/routines.window.html). The default is 'hanning'. The available functions are 'flat', 'hanning', 'hamming', 'bartlett', and 'blackman'. This parameter is only available from ***ConfID*** version 1.2.1.
 FACTOR_PEAK: a factor that sets the constriction for peaks selection. Larger values lessen the constriction.
 FACTOR_VALLEY: a factor that sets the constriction for valleys selection. Lower values lessen the constriction.
 TIME_DEPENDENT_STATS: flag that determines if the statistics of the time stayed at each population should be computed.
@@ -189,6 +193,14 @@ This will happen if you don't have the matplotlib package installed in your syst
 
 To solve this problem, set the SIM\_TIME value in your ```config``` file to "None" or to be larger than 0.0.
 
+- _"ERROR: WINDOW\_LEN must be odd integer between 3 and 180."_
+
+To solve this problem, set the WINDOW\_LEN value in your ```config``` file to an odd integer equal or larger than 3 and smaller than 180.
+
+- _"ERROR: WINDOW must be one of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'"_                        
+
+To solve this problem, set the WINDOW value in your ```config``` file to one of the strings above, without the quotation marks.
+
 - _"ERROR: FACTOR\_PEAK must be larger or equal to 1.0."_
 
 To solve this problem, set the FACTOR\_PEAK value in your ```config``` file to be larger or equal to 1.0.
@@ -223,7 +235,7 @@ This error will happen when an unidentified function is passed as an argument to
 
 - _"ValueError: Input vector needs to be bigger than window size."_
 
-This error will happen only if the file containing the dihedral distributions (```*.dist.xvg```) has less than 21 angles listed.
+This error will happen only if the file containing the dihedral distributions (```*.dist.xvg```) has less than 21 (or the value of WINDOW\_LEN) angles listed.
 
 - _"WARNING: Unidentified parameter ignored"_
 
@@ -250,6 +262,8 @@ We apologize for any bugs you may be witnessing. We kindly ask you to send your 
 ## Which works use ***ConfID***?
 
 There are some papers already using ***ConfID***! Take a look:
+
+- Feng, X., Li, F., Ding, M., Zhang, R., and Shi, T. _Molecular Dynamic Simulation: Conformational Properties of Single-stranded Curdlan in Aqueous Solution_, Carbohydrate Polymers **2020** 116906, DOI: [10.1016/j.carbpol.2020.116906](https://doi.org/10.1016/j.carbpol.2020.116906)
 
 - Pablo R. Arantes, Conrado Pedebos, Marcelo D. Polêto, Laércio Pol-Fachin, and Hugo Verli. _The Lazy Life of Lipid-Linked Oligosaccharides in All Life Domains_, Journal of Chemical Information and Modeling **2020** 60 (2), 631-643, DOI: [10.1021/acs.jcim.9b00904](https://doi.org/10.1021/acs.jcim.9b00904)
 

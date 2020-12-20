@@ -23,6 +23,8 @@ By using molecular dynamics (MD) simulations (and assuming accurate parameters a
 
 Have a nice "_ConfIDent_" analysis! =)
 
+**[Update 20/12/2020]** ***ConfID 1.2.1*** is now available! New in this version is the option to set the window length and function in the config file. For more details check the [documentation](ConfID_manual.pdf).
+
 ## What is ***ConfID***?
 
 It is a Python-based computational tool designed to identify and characterize conformational populations of small molecules sampled through molecular dynamics simulations.
@@ -53,6 +55,8 @@ Do you have any questions? Take a look on our [FAQ](FAQ.md)!
 ## Publications
 
 There are some papers already using ***ConfID***! These are some:
+
+- Feng, X., Li, F., Ding, M., Zhang, R., and Shi, T. _Molecular Dynamic Simulation: Conformational Properties of Single-stranded Curdlan in Aqueous Solution_, Carbohydrate Polymers **2020** 116906, DOI: [10.1016/j.carbpol.2020.116906](https://doi.org/10.1016/j.carbpol.2020.116906)
 
 - Pablo R. Arantes, Conrado Pedebos, Marcelo D. Polêto, Laércio Pol-Fachin, and Hugo Verli. _The Lazy Life of Lipid-Linked Oligosaccharides in All Life Domains_, Journal of Chemical Information and Modeling **2020** 60 (2), 631-643, DOI: [10.1021/acs.jcim.9b00904](https://doi.org/10.1021/acs.jcim.9b00904)
 
