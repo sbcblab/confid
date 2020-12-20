@@ -107,7 +107,7 @@ DATA_1 (list of strings)
 [sum / max / min / aver / std / median / count] defaults to sum
 DATA_2 (list of strings)
 [sum / max / min / aver / std / median / count] defaults to aver
-
+```
 A brief explanation of each parameter:
 ```
 RESULTS_FOLDER: specifies the directory in which output files should be saved.
